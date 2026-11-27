@@ -4,8 +4,14 @@ Input: a build manifest JSON listing every output artifact, its input release_id
 names, its grain and its publish flags. Releases come from the manifest's "releases" list or,
 with ``--catalog <releases.yaml>``, from a catalog file.
 
-Rules: L1 ODbL isolation, L2 NC quarantine, L3 catalog completeness, P1 no person-level
-columns, P2 household grain. Engineering guardrails, not legal advice.
+Rules: L1 ODbL isolation, L2 NC quarantine, L3 catalog completeness, L4 restricted inputs stay
+out of commercial artifacts without an explicit approval, P1 no person-level columns, P2 household
+grain. Engineering guardrails, not legal advice.
+
+L4 (G-301): a ``restricted`` release (e.g. CDSS childcare licensing data, whose CHHS terms require
+approval for commercial use, G-101 Q5) may feed an artifact flagged ``commercial: true`` only if
+that artifact lists the release_id in ``restricted_approvals`` with a non-empty
+``restricted_approval_ref`` pointing at the written approval. A bare ``true`` is not enough.
 """
 
 from __future__ import annotations
@@ -47,6 +53,19 @@ def check(manifest: dict[str, Any]) -> list[str]:
             errs.append(f"{name}: non-commercial input in a commercial artifact")
         if "non_commercial" in classes and not a["path"].startswith("quarantine/nc/"):
             errs.append(f"{name}: NC-derived artifact must live under quarantine/nc/")
+        # Rule L4: restricted inputs (commercial use needs the publisher's approval) never reach a
+        # commercial artifact unless each one is approved by release_id, with a reference.
+        if a.get("commercial", False):
+            restricted = sorted(
+                i for i in a["inputs"] if i in rel and rel[i]["license_class"] == "restricted"
+            )
+            listed = a.get("restricted_approvals")
+            approved = {str(x) for x in listed} if isinstance(listed, list) else set()
+            missing = [i for i in restricted if i not in approved]
+            if missing:
+                errs.append(f"{name}: restricted input {missing} in a commercial artifact without approval")
+            elif restricted and not str(a.get("restricted_approval_ref") or "").strip():
+                errs.append(f"{name}: restricted_approvals given without a restricted_approval_ref")
         # Rule P1: no person-level columns, ever.
         bad = [c for c in a.get("columns", []) if PII_COLS.search(c)]
         if bad:

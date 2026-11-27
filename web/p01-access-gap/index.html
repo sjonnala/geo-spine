@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Product 01: Licensed-capacity gap (2SFCA)</title>
+  <!-- Pinned versions, never @latest (ADR-001 spirit applied to front-end deps). -->
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="https://unpkg.com/pmtiles@3.2.1/dist/pmtiles.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="map" role="region" aria-label="Map of licensed child care seats per child"></div>
+  <aside id="panel">
+    <h1>Santa Clara licensed-capacity gap</h1>
+    <p class="banner">Synthetic fixture data for CI. These are not real Santa Clara figures.</p>
+    <p>Each hexagon shows licensed child care seats per child aged 0 to 5 after every seat is shared
+      among all cells that can reach it within a 15-minute drive (two-step floating catchment, 2SFCA).</p>
+    <ul id="legend">
+      <li><span class="swatch s0"></span> under 0.10 seats per child (least access)</li>
+      <li><span class="swatch s1"></span> 0.10 to 0.25</li>
+      <li><span class="swatch s2"></span> 0.25 to 0.50</li>
+      <li><span class="swatch s3"></span> 0.50 or more</li>
+      <li><span class="swatch sa"></span> not enough data (abstained)</li>
+      <li><span class="dot"></span> child care center (family child care homes are never shown)</li>
+    </ul>
+    <p id="selected" aria-live="polite">Click a cell to see its numbers and the cells it shares seats with.</p>
+    <p class="disclaimer"><strong>Licensed seats only.</strong> These figures count licensed child care
+      centers and family child care homes. Informal family, friend and neighbor (FFN) care, which California
+      exempts from licensing, is not counted, so a licensed-capacity gap compares licensed supply with
+      children; it does not show whether families have care. Family child care homes are placed at ZIP
+      centroids to protect home addresses.</p>
+    <p class="attribution" id="attribution">© OpenStreetMap contributors (ODbL) · CA Dept. of Social Services
+      licensing data · U.S. Census Bureau ACS 5-year</p>
+  </aside>
+  <script src="app.js"></script>
+</body>
+</html>

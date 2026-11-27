@@ -1,32 +1,63 @@
 {
- "_fixture_note": "SYNTHETIC feature rows for the Product 01 fixture memo.",
+ "_fixture_note": "SYNTHETIC feature rows for the Product 01 2SFCA fixture memo.",
  "allowed_releases": [
   "fixture_acs5_sc_2023",
   "fixture_cdss_ccl_sc_2026-11-02",
-  "fixture_valhalla_iso_sc_2026-11-27"
+  "fixture_valhalla_iso_sc_2026-11-27",
+  "fixture_valhalla_matrix_sc_2026-11-27"
  ],
  "rows": [
   {
-   "feature_id": "children_0_5_within_15min",
-   "value": 4097,
+   "feature_id": "children_0_5_cell",
+   "value": 118,
    "unit": "",
    "release_id": "fixture_acs5_sc_2023"
   },
   {
-   "feature_id": "licensed_seats_within_15min",
-   "value": 706,
+   "feature_id": "seats_per_child_2sfca",
+   "value": 0.15028,
    "unit": "",
    "release_id": "fixture_cdss_ccl_sc_2026-11-02"
   },
   {
-   "feature_id": "licensed_capacity_gap_seats_15min",
-   "value": 3391,
+   "feature_id": "allocated_seats_2sfca",
+   "value": 17.73,
    "unit": "",
    "release_id": "fixture_cdss_ccl_sc_2026-11-02"
   },
   {
-   "feature_id": "seats_per_child_15min",
-   "value": 0.172321,
+   "feature_id": "licensed_capacity_gap_2sfca",
+   "value": 100.27,
+   "unit": "",
+   "release_id": "fixture_cdss_ccl_sc_2026-11-02"
+  },
+  {
+   "feature_id": "facilities_in_reach_15min",
+   "value": 25,
+   "unit": "",
+   "release_id": "fixture_valhalla_matrix_sc_2026-11-27"
+  },
+  {
+   "feature_id": "raw_seats_in_reach_15min",
+   "value": 1160,
+   "unit": "",
+   "release_id": "fixture_cdss_ccl_sc_2026-11-02"
+  },
+  {
+   "feature_id": "region_total_seats",
+   "value": 1346,
+   "unit": "",
+   "release_id": "fixture_cdss_ccl_sc_2026-11-02"
+  },
+  {
+   "feature_id": "region_seats_counted_simple_ratio",
+   "value": 139098,
+   "unit": "",
+   "release_id": "fixture_cdss_ccl_sc_2026-11-02"
+  },
+  {
+   "feature_id": "double_count_factor_simple_ratio",
+   "value": 103.34,
    "unit": "",
    "release_id": "fixture_cdss_ccl_sc_2026-11-02"
   },
@@ -52,7 +83,7 @@
    "feature_id": "param_isochrone_min",
    "value": 15,
    "unit": "",
-   "release_id": "fixture_valhalla_iso_sc_2026-11-27"
+   "release_id": "fixture_valhalla_matrix_sc_2026-11-27"
   },
   {
    "feature_id": "param_radius_mi",

@@ -1,22 +1,47 @@
 {
   "_note": "Build manifest for the SYNTHETIC Product 01 Santa Clara fixture build, checked by tools/ci/license_guard.py (ADR-005). Releases come from tests/fixtures/releases.fixture.yaml via --catalog.",
-  "build_id": "fixture-g201",
+  "build_id": "fixture-g301",
   "artifacts": [
     {
       "name": "curated_facility",
       "path": "data/curated/facility.parquet",
-      "inputs": ["fixture_cdss_ccl_sc_2026-11-02"],
-      "columns": ["facility_id", "gers_id", "kind", "licensed_capacity", "status", "location_precision",
-                  "h3_r8", "geom", "release_id", "method_ver", "build_id", "license_class"],
+      "inputs": [
+        "fixture_cdss_ccl_sc_2026-11-02"
+      ],
+      "columns": [
+        "facility_id",
+        "gers_id",
+        "kind",
+        "licensed_capacity",
+        "status",
+        "location_precision",
+        "h3_r8",
+        "geom",
+        "release_id",
+        "method_ver",
+        "build_id",
+        "license_class"
+      ],
       "grain": "facility",
       "public": false
     },
     {
       "name": "catchment_cells",
       "path": "data/features/isochrone/0.1.0/catchment_cells.parquet",
-      "inputs": ["fixture_valhalla_iso_sc_2026-11-27"],
-      "columns": ["catchment_id", "origin_h3_r8", "mode", "minutes", "member_h3_r8", "release_ids",
-                  "method_ver", "build_id", "license_class"],
+      "inputs": [
+        "fixture_valhalla_iso_sc_2026-11-27"
+      ],
+      "columns": [
+        "catchment_id",
+        "origin_h3_r8",
+        "mode",
+        "minutes",
+        "member_h3_r8",
+        "release_ids",
+        "method_ver",
+        "build_id",
+        "license_class"
+      ],
       "grain": "h3_r8",
       "license": "ODbL-1.0",
       "public": true
@@ -24,20 +49,71 @@
     {
       "name": "radius_vs_isochrone_jaccard",
       "path": "data/features/isochrone/0.1.0/radius_vs_isochrone_jaccard.parquet",
-      "inputs": ["fixture_valhalla_iso_sc_2026-11-27"],
-      "columns": ["origin_h3_r8", "minutes", "radius_mi", "iso_cells", "radius_cells", "both_cells",
-                  "iso_only_cells", "radius_only_cells", "radius_vs_isochrone_jaccard", "release_ids",
-                  "method_ver", "build_id", "license_class"],
+      "inputs": [
+        "fixture_valhalla_iso_sc_2026-11-27"
+      ],
+      "columns": [
+        "origin_h3_r8",
+        "minutes",
+        "radius_mi",
+        "iso_cells",
+        "radius_cells",
+        "both_cells",
+        "iso_only_cells",
+        "radius_only_cells",
+        "radius_vs_isochrone_jaccard",
+        "release_ids",
+        "method_ver",
+        "build_id",
+        "license_class"
+      ],
       "grain": "h3_r8",
       "license": "ODbL-1.0",
       "public": true
     },
     {
+      "name": "p01_cells_2sfca",
+      "path": "data/features/p01/0.2.0/cells_2sfca.parquet",
+      "inputs": [
+        "fixture_acs5_sc_2023",
+        "fixture_cdss_ccl_sc_2026-11-02",
+        "fixture_valhalla_matrix_sc_2026-11-27"
+      ],
+      "columns": [
+        "h3_r8",
+        "children_0_5",
+        "seats_per_child_2sfca",
+        "allocated_seats_2sfca",
+        "gap_2sfca",
+        "facilities_in_reach",
+        "release_ids",
+        "method_ver",
+        "build_id"
+      ],
+      "grain": "h3_r8",
+      "license": "ODbL-1.0",
+      "_license_reason": "blends OSM drive times with CDSS seats and ACS children in one attribute (G-103 1.5, G-101 Q4 point 3); kept unpublished until the Director decides ODbL vs. unpublished",
+      "public": false,
+      "commercial": false
+    },
+    {
       "name": "p01_gap_scores",
-      "path": "data/decisions/p01/fixture-g201.parquet",
-      "inputs": ["fixture_acs5_sc_2023", "fixture_cdss_ccl_sc_2026-11-02", "fixture_valhalla_iso_sc_2026-11-27"],
-      "columns": ["recommendation_id", "subject_id", "verdict", "abstain_reason", "rationale_md", "evidence_ids",
-                  "build_id"],
+      "path": "data/decisions/p01/fixture-g301.parquet",
+      "inputs": [
+        "fixture_acs5_sc_2023",
+        "fixture_cdss_ccl_sc_2026-11-02",
+        "fixture_valhalla_iso_sc_2026-11-27",
+        "fixture_valhalla_matrix_sc_2026-11-27"
+      ],
+      "columns": [
+        "recommendation_id",
+        "subject_id",
+        "verdict",
+        "abstain_reason",
+        "rationale_md",
+        "evidence_ids",
+        "build_id"
+      ],
       "grain": "h3_r8",
       "produced_work": true,
       "_produced_work_reason": "aggregated statistics per catchment (ADR-005 L1, G-101 Q4) [D: Director to confirm]",
@@ -46,11 +122,40 @@
     },
     {
       "name": "p01_memo",
-      "path": "memos/p01/fixture-g201/8828347029fffff.md",
-      "inputs": ["fixture_acs5_sc_2023", "fixture_cdss_ccl_sc_2026-11-02", "fixture_valhalla_iso_sc_2026-11-27"],
+      "path": "memos/p01/fixture-g301/8828347029fffff.md",
+      "inputs": [
+        "fixture_acs5_sc_2023",
+        "fixture_cdss_ccl_sc_2026-11-02",
+        "fixture_valhalla_iso_sc_2026-11-27",
+        "fixture_valhalla_matrix_sc_2026-11-27"
+      ],
       "columns": [],
       "grain": "h3_r8",
       "produced_work": true,
+      "public": true,
+      "commercial": false
+    },
+    {
+      "name": "p01_tiles",
+      "path": "tiles/01/fixture-g301.pmtiles",
+      "inputs": [
+        "fixture_acs5_sc_2023",
+        "fixture_cdss_ccl_sc_2026-11-02",
+        "fixture_valhalla_matrix_sc_2026-11-27"
+      ],
+      "columns": [
+        "h3_r8",
+        "children_0_5",
+        "seats_per_child_2sfca",
+        "gap_2sfca",
+        "verdict",
+        "abstain_reason",
+        "release_ids",
+        "build_id"
+      ],
+      "grain": "h3_r8",
+      "produced_work": true,
+      "_produced_work_reason": "rendered map tiles (G-101 Q4 point 4); attribution in the viewer",
       "public": true,
       "commercial": false
     }
