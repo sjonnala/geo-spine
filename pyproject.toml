@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "geo-spine"
+version = "0.1.0"
+description = "One Spine, Six Products: an H3-keyed geospatial spine with deterministic kernels and grounded memos."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "pydantic>=2.6",
+  "pyyaml>=6.0",
+  "h3>=4.1",
+  "shapely>=2.0",
+  "pyarrow>=15",
+  "duckdb>=1.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6", "mypy>=1.10", "import-linter>=2.0", "types-PyYAML"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "tools/ci", "tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+src = ["src", "tools", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+plugins = ["pydantic.mypy"]
+mypy_path = ["src", "tools/ci"]
+explicit_package_bases = true
+
+[[tool.mypy.overrides]]
+module = ["h3", "h3.*", "shapely", "shapely.*", "pyarrow", "pyarrow.*", "duckdb", "duckdb.*"]
+ignore_missing_imports = true
+
+# ADR-002: dependencies point one way only, Catalog -> Identity -> Compute -> Decision -> Surface.
+# A higher layer may import a lower one; a lower layer may never import a higher one.
+[tool.importlinter]
+root_package = "spine"
+
+[[tool.importlinter.contracts]]
+name = "ADR-002 one-way bounded contexts"
+type = "layers"
+layers = [
+  "spine.surface",
+  "spine.decision",
+  "spine.compute",
+  "spine.identity",
+  "spine.catalog",
+]

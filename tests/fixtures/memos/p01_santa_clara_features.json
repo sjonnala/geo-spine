@@ -1,0 +1,76 @@
+{
+ "_fixture_note": "SYNTHETIC feature rows for the Product 01 fixture memo.",
+ "allowed_releases": [
+  "fixture_acs5_sc_2023",
+  "fixture_cdss_ccl_sc_2026-11-02",
+  "fixture_valhalla_iso_sc_2026-11-27"
+ ],
+ "rows": [
+  {
+   "feature_id": "children_0_5_within_15min",
+   "value": 4097,
+   "unit": "",
+   "release_id": "fixture_acs5_sc_2023"
+  },
+  {
+   "feature_id": "licensed_seats_within_15min",
+   "value": 706,
+   "unit": "",
+   "release_id": "fixture_cdss_ccl_sc_2026-11-02"
+  },
+  {
+   "feature_id": "licensed_capacity_gap_seats_15min",
+   "value": 3391,
+   "unit": "",
+   "release_id": "fixture_cdss_ccl_sc_2026-11-02"
+  },
+  {
+   "feature_id": "seats_per_child_15min",
+   "value": 0.172321,
+   "unit": "",
+   "release_id": "fixture_cdss_ccl_sc_2026-11-02"
+  },
+  {
+   "feature_id": "radius_vs_isochrone_jaccard_15min",
+   "value": 0.509091,
+   "unit": "",
+   "release_id": "fixture_valhalla_iso_sc_2026-11-27"
+  },
+  {
+   "feature_id": "radius_only_cells_15min",
+   "value": 9,
+   "unit": "",
+   "release_id": "fixture_valhalla_iso_sc_2026-11-27"
+  },
+  {
+   "feature_id": "iso_only_cells_15min",
+   "value": 18,
+   "unit": "",
+   "release_id": "fixture_valhalla_iso_sc_2026-11-27"
+  },
+  {
+   "feature_id": "param_isochrone_min",
+   "value": 15,
+   "unit": "",
+   "release_id": "fixture_valhalla_iso_sc_2026-11-27"
+  },
+  {
+   "feature_id": "param_radius_mi",
+   "value": 2.0,
+   "unit": "",
+   "release_id": "fixture_valhalla_iso_sc_2026-11-27"
+  },
+  {
+   "feature_id": "param_age_min",
+   "value": 0,
+   "unit": "",
+   "release_id": "fixture_acs5_sc_2023"
+  },
+  {
+   "feature_id": "param_age_max",
+   "value": 5,
+   "unit": "",
+   "release_id": "fixture_acs5_sc_2023"
+  }
+ ]
+}

@@ -1,0 +1,37 @@
+# SYNTHETIC fixture catalog for CI. Regenerate with `make fixtures`; do not hand-edit.
+releases:
+- release_id: fixture_acs5_sc_2023
+  source_id: fixture_acs5
+  vintage: '2023'
+  url: fixture://tests/fixtures/santa_clara/children.parquet
+  sha256: 0979c8ff595c6bd6cf3056a256d9bf53eece18a3b3e6121b9fb89e305703c4e9
+  license_spdx: CC0-1.0
+  license_class: public_domain
+  commercial_ok: true
+  retrieved_at: '2026-11-27T00:00:00+00:00'
+  status: pinned
+  notes: SYNTHETIC ACS-shaped children 0-5 per res 8 cell; class mirrors the real
+    one.
+- release_id: fixture_cdss_ccl_sc_2026-11-02
+  source_id: fixture_cdss_ccl
+  vintage: '2026-11-02'
+  url: fixture://tests/fixtures/santa_clara/cdss_raw_synthetic.csv
+  sha256: c370bd599267d67166d4c176380165a1c3252e5aeab3ac99cb1da4d9f2368143
+  license_spdx: LicenseRef-fixture-mirrors-CHHS-terms
+  license_class: restricted
+  commercial_ok: false
+  retrieved_at: '2026-11-27T00:00:00+00:00'
+  status: pinned
+  notes: SYNTHETIC CDSS-shaped facilities. Licence class mirrors the stricter CHHS
+    reading.
+- release_id: fixture_valhalla_iso_sc_2026-11-27
+  source_id: fixture_valhalla_iso
+  vintage: '2026-11-27'
+  url: fixture://tests/fixtures/valhalla/isochrone_santa_clara_synthetic.json
+  sha256: 525053fc744099e707f0ab561b58a7643ac9b23282c8cd8c075f601857d13f10
+  license_spdx: LicenseRef-fixture-mirrors-ODbL
+  license_class: share_alike
+  commercial_ok: true
+  retrieved_at: '2026-11-27T00:00:00+00:00'
+  status: pinned
+  notes: SYNTHETIC hand-built isochrone, not a Valhalla recording. Class mirrors ODbL.
