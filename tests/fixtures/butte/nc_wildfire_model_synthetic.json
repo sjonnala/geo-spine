@@ -1,0 +1,4 @@
+{
+  "_fixture_note": "SYNTHETIC fixture for CI. Not real Butte County data; no real structure, address or person. Stand-in for a non-commercial wildfire model layer (licence-gate test).",
+  "layer": "synthetic_nc_hazard"
+}

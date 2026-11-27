@@ -1,0 +1,47 @@
+{
+  "_fixture_note": "SYNTHETIC fixture for CI. Not real Butte County data; no real structure, address or person. Footprint-derived ring metrics (mirrors ODbL; separate table, G-103 G2.6).",
+  "structures": [
+    {
+      "structure_id": "SYN_BUTTE_0001",
+      "fixture": "synthetic",
+      "footprint_matched": true,
+      "naip_veg_0_5ft_pct": 6.0
+    },
+    {
+      "structure_id": "SYN_BUTTE_0002",
+      "fixture": "synthetic",
+      "footprint_matched": true,
+      "naip_veg_0_5ft_pct": 18.0
+    },
+    {
+      "structure_id": "SYN_BUTTE_0003",
+      "fixture": "synthetic",
+      "footprint_matched": true,
+      "naip_veg_0_5ft_pct": 4.0
+    },
+    {
+      "structure_id": "SYN_BUTTE_0004",
+      "fixture": "synthetic",
+      "footprint_matched": true,
+      "naip_veg_0_5ft_pct": 7.0
+    },
+    {
+      "structure_id": "SYN_BUTTE_0005",
+      "fixture": "synthetic",
+      "footprint_matched": true,
+      "naip_veg_0_5ft_pct": 32.0
+    },
+    {
+      "structure_id": "SYN_BUTTE_0006",
+      "fixture": "synthetic",
+      "footprint_matched": false,
+      "naip_veg_0_5ft_pct": null
+    },
+    {
+      "structure_id": "SYN_BUTTE_0007",
+      "fixture": "synthetic",
+      "footprint_matched": true,
+      "naip_veg_0_5ft_pct": 5.0
+    }
+  ]
+}

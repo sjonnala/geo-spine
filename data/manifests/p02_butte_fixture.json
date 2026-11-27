@@ -1,0 +1,129 @@
+{
+  "_note": "Build manifest for the SYNTHETIC Product 02 Butte County fixture build (G-302), checked by tools/ci/license_guard.py (ADR-005). Releases come from tests/fixtures/releases_p02.fixture.yaml via --catalog. The non-commercial stand-in release (fixture_nc_wildfire_model_butte_2026-01) is absent on purpose: the abstention gate blocks it (license_blocked) before any figure from it reaches an artifact.",
+  "build_id": "fixture-g302",
+  "artifacts": [
+    {
+      "name": "p02_footprint_rings",
+      "path": "data/features/wildfire_mitigation/0.1.0/footprint_rings.parquet",
+      "inputs": [
+        "fixture_overture_buildings_butte_2026-11",
+        "fixture_naip_butte_2024-06-15",
+        "fixture_naip_butte_2022-06-01"
+      ],
+      "columns": [
+        "structure_id",
+        "footprint_matched",
+        "naip_veg_0_5ft_pct",
+        "release_ids",
+        "method_ver",
+        "build_id"
+      ],
+      "grain": "structure",
+      "license": "ODbL-1.0",
+      "_license_reason": "footprint-derived ring metrics stay in their own ODbL table and are never blended into a published score (G-103 2.5, gate G2.6)",
+      "public": false,
+      "commercial": false
+    },
+    {
+      "name": "p02_exposure_r9",
+      "path": "data/features/wildfire_mitigation/0.1.0/exposure_r9.parquet",
+      "inputs": [
+        "fixture_landfire_butte_2024",
+        "fixture_3dep_butte_2026-11"
+      ],
+      "columns": [
+        "h3_r9",
+        "canopy_cover_pct",
+        "slope_deg",
+        "samples",
+        "release_ids",
+        "method_ver",
+        "build_id"
+      ],
+      "grain": "h3_r9",
+      "_grain_reason": "res-9 cells are household-scale, so this table is internal only (ADR-005 P2)",
+      "public": false,
+      "commercial": false
+    },
+    {
+      "name": "p02_assessments",
+      "path": "data/decisions/p02/fixture-g302.parquet",
+      "inputs": [
+        "fixture_naip_butte_2024-06-15",
+        "fixture_naip_butte_2022-06-01",
+        "fixture_landfire_butte_2024",
+        "fixture_3dep_butte_2026-11",
+        "fixture_overture_buildings_butte_2026-11",
+        "fixture_community_lists_butte_2026-11",
+        "fixture_ccr_title10_2644_9_2022-10-14",
+        "fixture_p02_rubric_2026-11-27"
+      ],
+      "columns": [
+        "recommendation_id",
+        "subject_id",
+        "verdict",
+        "abstain_reason",
+        "rationale_md",
+        "evidence_ids",
+        "build_id"
+      ],
+      "grain": "structure",
+      "produced_work": true,
+      "_produced_work_reason": "per-structure result shown only to the homeowner who entered it; uses the footprint match as a coverage gate, not the footprint database (ADR-005 L1) [D: Director to confirm]",
+      "public": false,
+      "commercial": false
+    },
+    {
+      "name": "p02_memo",
+      "path": "memos/p02/fixture-g302/SYN_BUTTE_0001.md",
+      "inputs": [
+        "fixture_naip_butte_2024-06-15",
+        "fixture_naip_butte_2022-06-01",
+        "fixture_landfire_butte_2024",
+        "fixture_3dep_butte_2026-11",
+        "fixture_overture_buildings_butte_2026-11",
+        "fixture_community_lists_butte_2026-11",
+        "fixture_ccr_title10_2644_9_2022-10-14",
+        "fixture_p02_rubric_2026-11-27"
+      ],
+      "columns": [],
+      "grain": "structure",
+      "produced_work": true,
+      "public": false,
+      "commercial": false
+    },
+    {
+      "name": "p02_viewer_cards",
+      "path": "web/p02-insurability-copilot/data/cards.json",
+      "inputs": [
+        "fixture_naip_butte_2024-06-15",
+        "fixture_naip_butte_2022-06-01",
+        "fixture_landfire_butte_2024",
+        "fixture_3dep_butte_2026-11",
+        "fixture_overture_buildings_butte_2026-11",
+        "fixture_community_lists_butte_2026-11",
+        "fixture_ccr_title10_2644_9_2022-10-14",
+        "fixture_p02_rubric_2026-11-27"
+      ],
+      "columns": [
+        "structure_id",
+        "structure_kind",
+        "verdict",
+        "abstain_reasons",
+        "abstain_messages",
+        "ready",
+        "score",
+        "checklist",
+        "open_data",
+        "memo_md",
+        "grounding_passed",
+        "letters"
+      ],
+      "grain": "structure",
+      "produced_work": true,
+      "_public_reason": "in production each card is shown only to the homeowner who entered it; the committed copy is synthetic",
+      "public": false,
+      "commercial": false
+    }
+  ]
+}

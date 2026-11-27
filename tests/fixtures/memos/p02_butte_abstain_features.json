@@ -1,0 +1,193 @@
+{
+  "allowed_releases": [
+    "fixture_3dep_butte_2026-11",
+    "fixture_ccr_title10_2644_9_2022-10-14",
+    "fixture_community_lists_butte_2026-11",
+    "fixture_landfire_butte_2024",
+    "fixture_naip_butte_2024-06-15",
+    "fixture_overture_buildings_butte_2026-11",
+    "fixture_p02_rubric_2026-11-27"
+  ],
+  "rows": [
+    {
+      "feature_id": "ref_ccr_title",
+      "value": 10.0,
+      "unit": "",
+      "release_id": "fixture_ccr_title10_2644_9_2022-10-14"
+    },
+    {
+      "feature_id": "ref_ccr_section",
+      "value": 2644.9,
+      "unit": "",
+      "release_id": "fixture_ccr_title10_2644_9_2022-10-14"
+    },
+    {
+      "feature_id": "ref_items_total",
+      "value": 12.0,
+      "unit": "",
+      "release_id": "fixture_ccr_title10_2644_9_2022-10-14"
+    },
+    {
+      "feature_id": "ref_ring_inner_ft",
+      "value": 0.0,
+      "unit": "",
+      "release_id": "fixture_ccr_title10_2644_9_2022-10-14"
+    },
+    {
+      "feature_id": "ref_ring_ft",
+      "value": 5.0,
+      "unit": "",
+      "release_id": "fixture_ccr_title10_2644_9_2022-10-14"
+    },
+    {
+      "feature_id": "ref_combustible_structures_ft",
+      "value": 30.0,
+      "unit": "",
+      "release_id": "fixture_ccr_title10_2644_9_2022-10-14"
+    },
+    {
+      "feature_id": "ref_vertical_clearance_in",
+      "value": 6.0,
+      "unit": "",
+      "release_id": "fixture_ccr_title10_2644_9_2022-10-14"
+    },
+    {
+      "feature_id": "ref_score_after_application_days",
+      "value": 15.0,
+      "unit": "",
+      "release_id": "fixture_ccr_title10_2644_9_2022-10-14"
+    },
+    {
+      "feature_id": "ref_score_before_renewal_days",
+      "value": 45.0,
+      "unit": "",
+      "release_id": "fixture_ccr_title10_2644_9_2022-10-14"
+    },
+    {
+      "feature_id": "ref_score_before_nonrenewal_days",
+      "value": 75.0,
+      "unit": "",
+      "release_id": "fixture_ccr_title10_2644_9_2022-10-14"
+    },
+    {
+      "feature_id": "ref_revised_score_days",
+      "value": 30.0,
+      "unit": "",
+      "release_id": "fixture_ccr_title10_2644_9_2022-10-14"
+    },
+    {
+      "feature_id": "ref_appeal_ack_days",
+      "value": 10.0,
+      "unit": "",
+      "release_id": "fixture_ccr_title10_2644_9_2022-10-14"
+    },
+    {
+      "feature_id": "ref_appeal_decision_days",
+      "value": 30.0,
+      "unit": "",
+      "release_id": "fixture_ccr_title10_2644_9_2022-10-14"
+    },
+    {
+      "feature_id": "param_score_max",
+      "value": 100.0,
+      "unit": "",
+      "release_id": "fixture_p02_rubric_2026-11-27"
+    },
+    {
+      "feature_id": "param_community_max",
+      "value": 20.0,
+      "unit": "",
+      "release_id": "fixture_p02_rubric_2026-11-27"
+    },
+    {
+      "feature_id": "param_surroundings_max",
+      "value": 40.0,
+      "unit": "",
+      "release_id": "fixture_p02_rubric_2026-11-27"
+    },
+    {
+      "feature_id": "param_hardening_max",
+      "value": 40.0,
+      "unit": "",
+      "release_id": "fixture_p02_rubric_2026-11-27"
+    },
+    {
+      "feature_id": "param_community_item_points",
+      "value": 10.0,
+      "unit": "",
+      "release_id": "fixture_p02_rubric_2026-11-27"
+    },
+    {
+      "feature_id": "param_other_item_points",
+      "value": 8.0,
+      "unit": "",
+      "release_id": "fixture_p02_rubric_2026-11-27"
+    },
+    {
+      "feature_id": "param_ready_min_score",
+      "value": 60.0,
+      "unit": "",
+      "release_id": "fixture_p02_rubric_2026-11-27"
+    },
+    {
+      "feature_id": "param_min_known_items",
+      "value": 6.0,
+      "unit": "",
+      "release_id": "fixture_p02_rubric_2026-11-27"
+    },
+    {
+      "feature_id": "param_max_imagery_age_years",
+      "value": 3.0,
+      "unit": "",
+      "release_id": "fixture_p02_rubric_2026-11-27"
+    },
+    {
+      "feature_id": "param_max_hazard_age_years",
+      "value": 5.0,
+      "unit": "",
+      "release_id": "fixture_p02_rubric_2026-11-27"
+    },
+    {
+      "feature_id": "param_veg_5ft_clear_pct",
+      "value": 10.0,
+      "unit": "%",
+      "release_id": "fixture_p02_rubric_2026-11-27"
+    },
+    {
+      "feature_id": "param_veg_5ft_conflict_pct",
+      "value": 25.0,
+      "unit": "%",
+      "release_id": "fixture_p02_rubric_2026-11-27"
+    },
+    {
+      "feature_id": "items_with_evidence",
+      "value": 9.0,
+      "unit": "",
+      "release_id": "fixture_ccr_title10_2644_9_2022-10-14"
+    },
+    {
+      "feature_id": "items_needing_evidence",
+      "value": 3.0,
+      "unit": "",
+      "release_id": "fixture_ccr_title10_2644_9_2022-10-14"
+    },
+    {
+      "feature_id": "naip_veg_0_5ft_pct",
+      "value": 32.0,
+      "unit": "%",
+      "release_id": "fixture_naip_butte_2024-06-15"
+    },
+    {
+      "feature_id": "landfire_canopy_cover_pct",
+      "value": 57.0,
+      "unit": "%",
+      "release_id": "fixture_landfire_butte_2024"
+    },
+    {
+      "feature_id": "usgs_3dep_slope_deg",
+      "value": 20.0,
+      "unit": "",
+      "release_id": "fixture_3dep_butte_2026-11"
+    }
+  ]
+}
