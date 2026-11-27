@@ -1,0 +1,790 @@
+{
+  "_fixture_note": "SYNTHETIC fixture for CI. Not real Butte County data; no real structure, address or person.",
+  "build_id": "fixture-g302",
+  "as_of": "2026-11-27",
+  "attribution": "Synthetic stand-ins for: USDA NAIP imagery · LANDFIRE · USGS 3DEP · Overture Maps buildings (ODbL) · Firewise USA and Board of Forestry community lists · 10 CCR § 2644.9",
+  "cards": [
+    {
+      "structure_id": "SYN_BUTTE_0001",
+      "structure_kind": "single_family",
+      "verdict": "recommend",
+      "abstain_reasons": [],
+      "abstain_messages": [],
+      "ready": true,
+      "score": {
+        "total": 62.0,
+        "community": 10.0,
+        "surroundings": 28.8,
+        "hardening": 23.2
+      },
+      "checklist": [
+        {
+          "item_id": "community_frrc",
+          "subdivision": "(d)(1)(A)",
+          "label": "Fire Risk Reduction Community",
+          "evidence": "unknown",
+          "strength": 0.0
+        },
+        {
+          "item_id": "community_firewise",
+          "subdivision": "(d)(1)(A)",
+          "label": "Firewise USA site in good standing",
+          "evidence": "open_data_observed",
+          "strength": 1.0
+        },
+        {
+          "item_id": "surround_under_deck",
+          "subdivision": "(d)(1)(B)1.a",
+          "label": "Cleared vegetation and debris under decks",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "surround_5ft",
+          "subdivision": "(d)(1)(B)1.b",
+          "label": "Cleared within 5 ft of the building",
+          "evidence": "open_data_observed",
+          "strength": 1.0
+        },
+        {
+          "item_id": "surround_fence_5ft",
+          "subdivision": "(d)(1)(B)1.c",
+          "label": "Only noncombustible fences and gates within 5 ft",
+          "evidence": "owner_attested",
+          "strength": 0.5
+        },
+        {
+          "item_id": "surround_30ft_structures",
+          "subdivision": "(d)(1)(B)1.d",
+          "label": "No combustible structures within 30 ft",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "surround_defensible_space",
+          "subdivision": "(d)(1)(B)1.e",
+          "label": "Defensible space per state law and local ordinance",
+          "evidence": "owner_attested",
+          "strength": 0.5
+        },
+        {
+          "item_id": "harden_class_a_roof",
+          "subdivision": "(d)(1)(B)2.a",
+          "label": "Class-A fire rated roof",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "harden_enclosed_eaves",
+          "subdivision": "(d)(1)(B)2.b",
+          "label": "Enclosed eaves",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "harden_vents",
+          "subdivision": "(d)(1)(B)2.c",
+          "label": "Fire-resistant vents",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "harden_windows",
+          "subdivision": "(d)(1)(B)2.d",
+          "label": "Multipane windows or functional shutters",
+          "evidence": "owner_attested",
+          "strength": 0.5
+        },
+        {
+          "item_id": "harden_6in_clearance",
+          "subdivision": "(d)(1)(B)2.e",
+          "label": "6 in of noncombustible clearance at the wall base",
+          "evidence": "unknown",
+          "strength": 0.0
+        }
+      ],
+      "open_data": {
+        "naip_veg_0_5ft_pct": 6.0,
+        "canopy_cover_pct": 24.0,
+        "slope_deg": 10.0,
+        "exposure_context": "lower"
+      },
+      "memo_md": "# Wildfire mitigation evidence memo: structure SYN_BUTTE_0001\n\n_Synthetic fixture data for CI. This is not a real Butte County home._\n\nDraft only. You send every letter yourself; this tool never contacts an insurer.\n\n## Documentation completeness\n- Documentation completeness: 62.0 out of 100 [src:fixture_p02_rubric_2026-11-27]. This measures how well your mitigation is documented. It is not a risk score: insurers use their own wildfire models.\n- Community 10.0 of 20, surroundings 28.8 of 40, building hardening 23.2 of 40 [src:fixture_p02_rubric_2026-11-27]\n- Items with evidence: 10 of the 12 items in 10 CCR § 2644.9 [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Ready: your documentation is complete enough to request your score and appeal.\n\n## What open data shows around this structure\n- Vegetation within 0 to 5 ft of the building on NAIP imagery: 6.0% [src:fixture_naip_butte_2024-06-15] [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Tree canopy cover in this structure's grid cell (LANDFIRE): 24.0% [src:fixture_landfire_butte_2024]\n- Average slope in that cell (USGS 3DEP): 10.0 degrees [src:fixture_3dep_butte_2026-11]\n- Open-data exposure context: lower. This describes the surroundings; it is not an insurer's score.\n\n## Evidence per item\n- Fire Risk Reduction Community: no evidence yet\n- Firewise USA site in good standing: seen in pinned open data\n- Cleared vegetation and debris under decks: your attestation with a photo\n- Cleared within 5 ft of the building: seen in pinned open data\n- Only noncombustible fences and gates within 5 ft: your attestation\n- No combustible structures within 30 ft: your attestation with a photo\n- Defensible space per state law and local ordinance: your attestation\n- Class-A fire rated roof: your attestation with a photo\n- Enclosed eaves: your attestation with a photo\n- Fire-resistant vents: your attestation with a photo\n- Multipane windows or functional shutters: your attestation\n- 6 in of noncombustible clearance at the wall base: no evidence yet\n\n## Your rights under 10 CCR § 2644.9 [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Score request: your insurer must give your wildfire score in writing within 15 days of a completed application, at least 45 days before renewal and at least 75 days before nonrenewal [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Revised score: within 30 days of your request after you complete a mitigation measure [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Appeal: you can appeal orally or in writing; the insurer acknowledges in writing within 10 calendar days and decides within 30 days [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Check that the insurer's explanation covers:\n  - The range of possible scores\n  - Where your home falls in that range and how that affects your premium\n  - A detailed explanation of the score\n  - Mitigation that would lower your score\n  - The premium reduction each of those measures would bring\n- The insurer's response must include the Department of Insurance consumer hotline and the address of its Consumer Complaint Center.\n",
+      "grounding_passed": true,
+      "letters": {
+        "score_request": "[Your name]\n[Date]\n\nTo [insurer name], policy [policy number]:\n\nUnder 10 CCR § 2644.9, I request my property's wildfire score in writing, with the explanation the regulation requires: the range of possible scores, where my home falls in that range and how that affects my premium, a detailed explanation, the mitigation that would lower my score, and the premium reduction each of those measures would bring.\n\nMy home has the following mitigation:\n- Firewise USA site in good standing (public records)\n- Cleared vegetation and debris under decks (photo attached)\n- Cleared within 5 ft of the building (public records)\n- Only noncombustible fences and gates within 5 ft (my attestation)\n- No combustible structures within 30 ft (photo attached)\n- Defensible space per state law and local ordinance (my attestation)\n- Class-A fire rated roof (photo attached)\n- Enclosed eaves (photo attached)\n- Fire-resistant vents (photo attached)\n- Multipane windows or functional shutters (my attestation)\n\nThank you,\n[Your name]\n",
+        "revised_score_request": "[Your name]\n[Date]\n\nTo [insurer name], policy [policy number]:\n\nI have completed the mitigation listed below. Under 10 CCR § 2644.9, please send a revised wildfire score within 30 days of this request.\n\n- Firewise USA site in good standing (public records)\n- Cleared vegetation and debris under decks (photo attached)\n- Cleared within 5 ft of the building (public records)\n- Only noncombustible fences and gates within 5 ft (my attestation)\n- No combustible structures within 30 ft (photo attached)\n- Defensible space per state law and local ordinance (my attestation)\n- Class-A fire rated roof (photo attached)\n- Enclosed eaves (photo attached)\n- Fire-resistant vents (photo attached)\n- Multipane windows or functional shutters (my attestation)\n\nThank you,\n[Your name]\n",
+        "appeal": "[Your name]\n[Date]\n\nTo [insurer name], policy [policy number]:\n\nI appeal my wildfire score under 10 CCR § 2644.9. My home has the mitigation below, which I believe the score does not reflect. Please acknowledge this appeal in writing within 10 calendar days and send your decision within 30 days, with the range of possible scores, where my home falls in that range and how that affects my premium, a detailed explanation, the mitigation that would lower my score, and the premium reduction each of those measures would bring.\n\n- Firewise USA site in good standing (public records)\n- Cleared vegetation and debris under decks (photo attached)\n- Cleared within 5 ft of the building (public records)\n- Only noncombustible fences and gates within 5 ft (my attestation)\n- No combustible structures within 30 ft (photo attached)\n- Defensible space per state law and local ordinance (my attestation)\n- Class-A fire rated roof (photo attached)\n- Enclosed eaves (photo attached)\n- Fire-resistant vents (photo attached)\n- Multipane windows or functional shutters (my attestation)\n\nPlease include the Department of Insurance consumer hotline and Consumer Complaint Center address in your response.\n\nThank you,\n[Your name]\n"
+      }
+    },
+    {
+      "structure_id": "SYN_BUTTE_0002",
+      "structure_kind": "duplex",
+      "verdict": "do_not_recommend",
+      "abstain_reasons": [],
+      "abstain_messages": [],
+      "ready": false,
+      "score": {
+        "total": 24.0,
+        "community": 0.0,
+        "surroundings": 12.0,
+        "hardening": 12.0
+      },
+      "checklist": [
+        {
+          "item_id": "community_frrc",
+          "subdivision": "(d)(1)(A)",
+          "label": "Fire Risk Reduction Community",
+          "evidence": "unknown",
+          "strength": 0.0
+        },
+        {
+          "item_id": "community_firewise",
+          "subdivision": "(d)(1)(A)",
+          "label": "Firewise USA site in good standing",
+          "evidence": "unknown",
+          "strength": 0.0
+        },
+        {
+          "item_id": "surround_under_deck",
+          "subdivision": "(d)(1)(B)1.a",
+          "label": "Cleared vegetation and debris under decks",
+          "evidence": "owner_attested",
+          "strength": 0.5
+        },
+        {
+          "item_id": "surround_5ft",
+          "subdivision": "(d)(1)(B)1.b",
+          "label": "Cleared within 5 ft of the building",
+          "evidence": "unknown",
+          "strength": 0.0
+        },
+        {
+          "item_id": "surround_fence_5ft",
+          "subdivision": "(d)(1)(B)1.c",
+          "label": "Only noncombustible fences and gates within 5 ft",
+          "evidence": "owner_attested",
+          "strength": 0.5
+        },
+        {
+          "item_id": "surround_30ft_structures",
+          "subdivision": "(d)(1)(B)1.d",
+          "label": "No combustible structures within 30 ft",
+          "evidence": "owner_attested",
+          "strength": 0.5
+        },
+        {
+          "item_id": "surround_defensible_space",
+          "subdivision": "(d)(1)(B)1.e",
+          "label": "Defensible space per state law and local ordinance",
+          "evidence": "unknown",
+          "strength": 0.0
+        },
+        {
+          "item_id": "harden_class_a_roof",
+          "subdivision": "(d)(1)(B)2.a",
+          "label": "Class-A fire rated roof",
+          "evidence": "owner_attested",
+          "strength": 0.5
+        },
+        {
+          "item_id": "harden_enclosed_eaves",
+          "subdivision": "(d)(1)(B)2.b",
+          "label": "Enclosed eaves",
+          "evidence": "unknown",
+          "strength": 0.0
+        },
+        {
+          "item_id": "harden_vents",
+          "subdivision": "(d)(1)(B)2.c",
+          "label": "Fire-resistant vents",
+          "evidence": "owner_attested",
+          "strength": 0.5
+        },
+        {
+          "item_id": "harden_windows",
+          "subdivision": "(d)(1)(B)2.d",
+          "label": "Multipane windows or functional shutters",
+          "evidence": "owner_attested",
+          "strength": 0.5
+        },
+        {
+          "item_id": "harden_6in_clearance",
+          "subdivision": "(d)(1)(B)2.e",
+          "label": "6 in of noncombustible clearance at the wall base",
+          "evidence": "unknown",
+          "strength": 0.0
+        }
+      ],
+      "open_data": {
+        "naip_veg_0_5ft_pct": 18.0,
+        "canopy_cover_pct": 42.0,
+        "slope_deg": 13.0,
+        "exposure_context": "elevated"
+      },
+      "memo_md": "# Wildfire mitigation evidence memo: structure SYN_BUTTE_0002\n\n_Synthetic fixture data for CI. This is not a real Butte County home._\n\nDraft only. You send every letter yourself; this tool never contacts an insurer.\n\n## Documentation completeness\n- Documentation completeness: 24.0 out of 100 [src:fixture_p02_rubric_2026-11-27]. This measures how well your mitigation is documented. It is not a risk score: insurers use their own wildfire models.\n- Community 0.0 of 20, surroundings 12.0 of 40, building hardening 12.0 of 40 [src:fixture_p02_rubric_2026-11-27]\n- Items with evidence: 6 of the 12 items in 10 CCR § 2644.9 [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Not ready yet: document more items until completeness reaches 60.0 [src:fixture_p02_rubric_2026-11-27].\n\n## What open data shows around this structure\n- Vegetation within 0 to 5 ft of the building on NAIP imagery: 18.0% [src:fixture_naip_butte_2024-06-15] [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Tree canopy cover in this structure's grid cell (LANDFIRE): 42.0% [src:fixture_landfire_butte_2024]\n- Average slope in that cell (USGS 3DEP): 13.0 degrees [src:fixture_3dep_butte_2026-11]\n- Open-data exposure context: elevated. This describes the surroundings; it is not an insurer's score.\n\n## Evidence per item\n- Fire Risk Reduction Community: no evidence yet\n- Firewise USA site in good standing: no evidence yet\n- Cleared vegetation and debris under decks: your attestation\n- Cleared within 5 ft of the building: no evidence yet\n- Only noncombustible fences and gates within 5 ft: your attestation\n- No combustible structures within 30 ft: your attestation\n- Defensible space per state law and local ordinance: no evidence yet\n- Class-A fire rated roof: your attestation\n- Enclosed eaves: no evidence yet\n- Fire-resistant vents: your attestation\n- Multipane windows or functional shutters: your attestation\n- 6 in of noncombustible clearance at the wall base: no evidence yet\n\n## Your rights under 10 CCR § 2644.9 [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Score request: your insurer must give your wildfire score in writing within 15 days of a completed application, at least 45 days before renewal and at least 75 days before nonrenewal [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Revised score: within 30 days of your request after you complete a mitigation measure [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Appeal: you can appeal orally or in writing; the insurer acknowledges in writing within 10 calendar days and decides within 30 days [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Check that the insurer's explanation covers:\n  - The range of possible scores\n  - Where your home falls in that range and how that affects your premium\n  - A detailed explanation of the score\n  - Mitigation that would lower your score\n  - The premium reduction each of those measures would bring\n- The insurer's response must include the Department of Insurance consumer hotline and the address of its Consumer Complaint Center.\n",
+      "grounding_passed": true,
+      "letters": {
+        "score_request": "[Your name]\n[Date]\n\nTo [insurer name], policy [policy number]:\n\nUnder 10 CCR § 2644.9, I request my property's wildfire score in writing, with the explanation the regulation requires: the range of possible scores, where my home falls in that range and how that affects my premium, a detailed explanation, the mitigation that would lower my score, and the premium reduction each of those measures would bring.\n\nMy home has the following mitigation:\n- Cleared vegetation and debris under decks (my attestation)\n- Only noncombustible fences and gates within 5 ft (my attestation)\n- No combustible structures within 30 ft (my attestation)\n- Class-A fire rated roof (my attestation)\n- Fire-resistant vents (my attestation)\n- Multipane windows or functional shutters (my attestation)\n\nThank you,\n[Your name]\n",
+        "revised_score_request": "[Your name]\n[Date]\n\nTo [insurer name], policy [policy number]:\n\nI have completed the mitigation listed below. Under 10 CCR § 2644.9, please send a revised wildfire score within 30 days of this request.\n\n- Cleared vegetation and debris under decks (my attestation)\n- Only noncombustible fences and gates within 5 ft (my attestation)\n- No combustible structures within 30 ft (my attestation)\n- Class-A fire rated roof (my attestation)\n- Fire-resistant vents (my attestation)\n- Multipane windows or functional shutters (my attestation)\n\nThank you,\n[Your name]\n"
+      }
+    },
+    {
+      "structure_id": "SYN_BUTTE_0003",
+      "structure_kind": "commercial",
+      "verdict": "abstain",
+      "abstain_reasons": [
+        "out_of_domain"
+      ],
+      "abstain_messages": [
+        "this is a commercial building; only single-family homes and duplexes are covered for now"
+      ],
+      "ready": false,
+      "score": null,
+      "checklist": [
+        {
+          "item_id": "community_frrc",
+          "subdivision": "(d)(1)(A)",
+          "label": "Fire Risk Reduction Community",
+          "evidence": "unknown",
+          "strength": 0.0
+        },
+        {
+          "item_id": "community_firewise",
+          "subdivision": "(d)(1)(A)",
+          "label": "Firewise USA site in good standing",
+          "evidence": "open_data_observed",
+          "strength": 1.0
+        },
+        {
+          "item_id": "surround_under_deck",
+          "subdivision": "(d)(1)(B)1.a",
+          "label": "Cleared vegetation and debris under decks",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "surround_5ft",
+          "subdivision": "(d)(1)(B)1.b",
+          "label": "Cleared within 5 ft of the building",
+          "evidence": "open_data_observed",
+          "strength": 1.0
+        },
+        {
+          "item_id": "surround_fence_5ft",
+          "subdivision": "(d)(1)(B)1.c",
+          "label": "Only noncombustible fences and gates within 5 ft",
+          "evidence": "owner_attested",
+          "strength": 0.5
+        },
+        {
+          "item_id": "surround_30ft_structures",
+          "subdivision": "(d)(1)(B)1.d",
+          "label": "No combustible structures within 30 ft",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "surround_defensible_space",
+          "subdivision": "(d)(1)(B)1.e",
+          "label": "Defensible space per state law and local ordinance",
+          "evidence": "owner_attested",
+          "strength": 0.5
+        },
+        {
+          "item_id": "harden_class_a_roof",
+          "subdivision": "(d)(1)(B)2.a",
+          "label": "Class-A fire rated roof",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "harden_enclosed_eaves",
+          "subdivision": "(d)(1)(B)2.b",
+          "label": "Enclosed eaves",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "harden_vents",
+          "subdivision": "(d)(1)(B)2.c",
+          "label": "Fire-resistant vents",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "harden_windows",
+          "subdivision": "(d)(1)(B)2.d",
+          "label": "Multipane windows or functional shutters",
+          "evidence": "owner_attested",
+          "strength": 0.5
+        },
+        {
+          "item_id": "harden_6in_clearance",
+          "subdivision": "(d)(1)(B)2.e",
+          "label": "6 in of noncombustible clearance at the wall base",
+          "evidence": "unknown",
+          "strength": 0.0
+        }
+      ],
+      "open_data": {
+        "naip_veg_0_5ft_pct": 4.0,
+        "canopy_cover_pct": 22.0,
+        "slope_deg": 7.0,
+        "exposure_context": "lower"
+      },
+      "memo_md": "# Wildfire mitigation evidence memo: structure SYN_BUTTE_0003\n\n_Synthetic fixture data for CI. This is not a real Butte County home._\n\nDraft only. You send every letter yourself; this tool never contacts an insurer.\n\n## We can't score this home yet\n- This is a commercial building; only single-family homes and duplexes are covered for now [src:fixture_ccr_title10_2644_9_2022-10-14] [src:fixture_p02_rubric_2026-11-27] [src:fixture_naip_butte_2024-06-15]\n- Items with evidence so far: 10 of the 12 items in 10 CCR § 2644.9 [src:fixture_ccr_title10_2644_9_2022-10-14]\n- The checklist below still shows what to document. The score and the appeal stay withheld until these are resolved.\n\n## What open data shows around this structure\n- Vegetation within 0 to 5 ft of the building on NAIP imagery: 4.0% [src:fixture_naip_butte_2024-06-15] [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Tree canopy cover in this structure's grid cell (LANDFIRE): 22.0% [src:fixture_landfire_butte_2024]\n- Average slope in that cell (USGS 3DEP): 7.0 degrees [src:fixture_3dep_butte_2026-11]\n- Open-data exposure context: lower. This describes the surroundings; it is not an insurer's score.\n\n## Evidence per item\n- Fire Risk Reduction Community: no evidence yet\n- Firewise USA site in good standing: seen in pinned open data\n- Cleared vegetation and debris under decks: your attestation with a photo\n- Cleared within 5 ft of the building: seen in pinned open data\n- Only noncombustible fences and gates within 5 ft: your attestation\n- No combustible structures within 30 ft: your attestation with a photo\n- Defensible space per state law and local ordinance: your attestation\n- Class-A fire rated roof: your attestation with a photo\n- Enclosed eaves: your attestation with a photo\n- Fire-resistant vents: your attestation with a photo\n- Multipane windows or functional shutters: your attestation\n- 6 in of noncombustible clearance at the wall base: no evidence yet\n\n## Your rights under 10 CCR § 2644.9 [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Score request: your insurer must give your wildfire score in writing within 15 days of a completed application, at least 45 days before renewal and at least 75 days before nonrenewal [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Revised score: within 30 days of your request after you complete a mitigation measure [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Appeal: you can appeal orally or in writing; the insurer acknowledges in writing within 10 calendar days and decides within 30 days [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Check that the insurer's explanation covers:\n  - The range of possible scores\n  - Where your home falls in that range and how that affects your premium\n  - A detailed explanation of the score\n  - Mitigation that would lower your score\n  - The premium reduction each of those measures would bring\n- The insurer's response must include the Department of Insurance consumer hotline and the address of its Consumer Complaint Center.\n",
+      "grounding_passed": true,
+      "letters": {
+        "score_request": "[Your name]\n[Date]\n\nTo [insurer name], policy [policy number]:\n\nUnder 10 CCR § 2644.9, I request my property's wildfire score in writing, with the explanation the regulation requires: the range of possible scores, where my home falls in that range and how that affects my premium, a detailed explanation, the mitigation that would lower my score, and the premium reduction each of those measures would bring.\n\nMy home has the following mitigation:\n- Firewise USA site in good standing (public records)\n- Cleared vegetation and debris under decks (photo attached)\n- Cleared within 5 ft of the building (public records)\n- Only noncombustible fences and gates within 5 ft (my attestation)\n- No combustible structures within 30 ft (photo attached)\n- Defensible space per state law and local ordinance (my attestation)\n- Class-A fire rated roof (photo attached)\n- Enclosed eaves (photo attached)\n- Fire-resistant vents (photo attached)\n- Multipane windows or functional shutters (my attestation)\n\nThank you,\n[Your name]\n",
+        "revised_score_request": "[Your name]\n[Date]\n\nTo [insurer name], policy [policy number]:\n\nI have completed the mitigation listed below. Under 10 CCR § 2644.9, please send a revised wildfire score within 30 days of this request.\n\n- Firewise USA site in good standing (public records)\n- Cleared vegetation and debris under decks (photo attached)\n- Cleared within 5 ft of the building (public records)\n- Only noncombustible fences and gates within 5 ft (my attestation)\n- No combustible structures within 30 ft (photo attached)\n- Defensible space per state law and local ordinance (my attestation)\n- Class-A fire rated roof (photo attached)\n- Enclosed eaves (photo attached)\n- Fire-resistant vents (photo attached)\n- Multipane windows or functional shutters (my attestation)\n\nThank you,\n[Your name]\n"
+      }
+    },
+    {
+      "structure_id": "SYN_BUTTE_0004",
+      "structure_kind": "single_family",
+      "verdict": "abstain",
+      "abstain_reasons": [
+        "stale_release"
+      ],
+      "abstain_messages": [
+        "the NAIP imagery is older than 3 years"
+      ],
+      "ready": false,
+      "score": null,
+      "checklist": [
+        {
+          "item_id": "community_frrc",
+          "subdivision": "(d)(1)(A)",
+          "label": "Fire Risk Reduction Community",
+          "evidence": "unknown",
+          "strength": 0.0
+        },
+        {
+          "item_id": "community_firewise",
+          "subdivision": "(d)(1)(A)",
+          "label": "Firewise USA site in good standing",
+          "evidence": "open_data_observed",
+          "strength": 1.0
+        },
+        {
+          "item_id": "surround_under_deck",
+          "subdivision": "(d)(1)(B)1.a",
+          "label": "Cleared vegetation and debris under decks",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "surround_5ft",
+          "subdivision": "(d)(1)(B)1.b",
+          "label": "Cleared within 5 ft of the building",
+          "evidence": "open_data_observed",
+          "strength": 1.0
+        },
+        {
+          "item_id": "surround_fence_5ft",
+          "subdivision": "(d)(1)(B)1.c",
+          "label": "Only noncombustible fences and gates within 5 ft",
+          "evidence": "owner_attested",
+          "strength": 0.5
+        },
+        {
+          "item_id": "surround_30ft_structures",
+          "subdivision": "(d)(1)(B)1.d",
+          "label": "No combustible structures within 30 ft",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "surround_defensible_space",
+          "subdivision": "(d)(1)(B)1.e",
+          "label": "Defensible space per state law and local ordinance",
+          "evidence": "owner_attested",
+          "strength": 0.5
+        },
+        {
+          "item_id": "harden_class_a_roof",
+          "subdivision": "(d)(1)(B)2.a",
+          "label": "Class-A fire rated roof",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "harden_enclosed_eaves",
+          "subdivision": "(d)(1)(B)2.b",
+          "label": "Enclosed eaves",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "harden_vents",
+          "subdivision": "(d)(1)(B)2.c",
+          "label": "Fire-resistant vents",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "harden_windows",
+          "subdivision": "(d)(1)(B)2.d",
+          "label": "Multipane windows or functional shutters",
+          "evidence": "owner_attested",
+          "strength": 0.5
+        },
+        {
+          "item_id": "harden_6in_clearance",
+          "subdivision": "(d)(1)(B)2.e",
+          "label": "6 in of noncombustible clearance at the wall base",
+          "evidence": "unknown",
+          "strength": 0.0
+        }
+      ],
+      "open_data": {
+        "naip_veg_0_5ft_pct": 7.0,
+        "canopy_cover_pct": 31.0,
+        "slope_deg": 11.0,
+        "exposure_context": "elevated"
+      },
+      "memo_md": "# Wildfire mitigation evidence memo: structure SYN_BUTTE_0004\n\n_Synthetic fixture data for CI. This is not a real Butte County home._\n\nDraft only. You send every letter yourself; this tool never contacts an insurer.\n\n## We can't score this home yet\n- The NAIP imagery is older than 3 years [src:fixture_ccr_title10_2644_9_2022-10-14] [src:fixture_p02_rubric_2026-11-27] [src:fixture_naip_butte_2024-06-15]\n- Items with evidence so far: 10 of the 12 items in 10 CCR § 2644.9 [src:fixture_ccr_title10_2644_9_2022-10-14]\n- The checklist below still shows what to document. The score and the appeal stay withheld until these are resolved.\n\n## What open data shows around this structure\n- Vegetation within 0 to 5 ft of the building on NAIP imagery: 7.0% [src:fixture_naip_butte_2024-06-15] [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Tree canopy cover in this structure's grid cell (LANDFIRE): 31.0% [src:fixture_landfire_butte_2024]\n- Average slope in that cell (USGS 3DEP): 11.0 degrees [src:fixture_3dep_butte_2026-11]\n- Open-data exposure context: elevated. This describes the surroundings; it is not an insurer's score.\n\n## Evidence per item\n- Fire Risk Reduction Community: no evidence yet\n- Firewise USA site in good standing: seen in pinned open data\n- Cleared vegetation and debris under decks: your attestation with a photo\n- Cleared within 5 ft of the building: seen in pinned open data\n- Only noncombustible fences and gates within 5 ft: your attestation\n- No combustible structures within 30 ft: your attestation with a photo\n- Defensible space per state law and local ordinance: your attestation\n- Class-A fire rated roof: your attestation with a photo\n- Enclosed eaves: your attestation with a photo\n- Fire-resistant vents: your attestation with a photo\n- Multipane windows or functional shutters: your attestation\n- 6 in of noncombustible clearance at the wall base: no evidence yet\n\n## Your rights under 10 CCR § 2644.9 [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Score request: your insurer must give your wildfire score in writing within 15 days of a completed application, at least 45 days before renewal and at least 75 days before nonrenewal [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Revised score: within 30 days of your request after you complete a mitigation measure [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Appeal: you can appeal orally or in writing; the insurer acknowledges in writing within 10 calendar days and decides within 30 days [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Check that the insurer's explanation covers:\n  - The range of possible scores\n  - Where your home falls in that range and how that affects your premium\n  - A detailed explanation of the score\n  - Mitigation that would lower your score\n  - The premium reduction each of those measures would bring\n- The insurer's response must include the Department of Insurance consumer hotline and the address of its Consumer Complaint Center.\n",
+      "grounding_passed": true,
+      "letters": {
+        "score_request": "[Your name]\n[Date]\n\nTo [insurer name], policy [policy number]:\n\nUnder 10 CCR § 2644.9, I request my property's wildfire score in writing, with the explanation the regulation requires: the range of possible scores, where my home falls in that range and how that affects my premium, a detailed explanation, the mitigation that would lower my score, and the premium reduction each of those measures would bring.\n\nMy home has the following mitigation:\n- Firewise USA site in good standing (public records)\n- Cleared vegetation and debris under decks (photo attached)\n- Cleared within 5 ft of the building (public records)\n- Only noncombustible fences and gates within 5 ft (my attestation)\n- No combustible structures within 30 ft (photo attached)\n- Defensible space per state law and local ordinance (my attestation)\n- Class-A fire rated roof (photo attached)\n- Enclosed eaves (photo attached)\n- Fire-resistant vents (photo attached)\n- Multipane windows or functional shutters (my attestation)\n\nThank you,\n[Your name]\n",
+        "revised_score_request": "[Your name]\n[Date]\n\nTo [insurer name], policy [policy number]:\n\nI have completed the mitigation listed below. Under 10 CCR § 2644.9, please send a revised wildfire score within 30 days of this request.\n\n- Firewise USA site in good standing (public records)\n- Cleared vegetation and debris under decks (photo attached)\n- Cleared within 5 ft of the building (public records)\n- Only noncombustible fences and gates within 5 ft (my attestation)\n- No combustible structures within 30 ft (photo attached)\n- Defensible space per state law and local ordinance (my attestation)\n- Class-A fire rated roof (photo attached)\n- Enclosed eaves (photo attached)\n- Fire-resistant vents (photo attached)\n- Multipane windows or functional shutters (my attestation)\n\nThank you,\n[Your name]\n"
+      }
+    },
+    {
+      "structure_id": "SYN_BUTTE_0005",
+      "structure_kind": "single_family",
+      "verdict": "abstain",
+      "abstain_reasons": [
+        "conflicting_evidence"
+      ],
+      "abstain_messages": [
+        "you attested “Cleared within 5 ft of the building”, but the imagery shows 32.0% vegetation in that ring (limit 25.0%)"
+      ],
+      "ready": false,
+      "score": null,
+      "checklist": [
+        {
+          "item_id": "community_frrc",
+          "subdivision": "(d)(1)(A)",
+          "label": "Fire Risk Reduction Community",
+          "evidence": "unknown",
+          "strength": 0.0
+        },
+        {
+          "item_id": "community_firewise",
+          "subdivision": "(d)(1)(A)",
+          "label": "Firewise USA site in good standing",
+          "evidence": "unknown",
+          "strength": 0.0
+        },
+        {
+          "item_id": "surround_under_deck",
+          "subdivision": "(d)(1)(B)1.a",
+          "label": "Cleared vegetation and debris under decks",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "surround_5ft",
+          "subdivision": "(d)(1)(B)1.b",
+          "label": "Cleared within 5 ft of the building",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "surround_fence_5ft",
+          "subdivision": "(d)(1)(B)1.c",
+          "label": "Only noncombustible fences and gates within 5 ft",
+          "evidence": "owner_attested",
+          "strength": 0.5
+        },
+        {
+          "item_id": "surround_30ft_structures",
+          "subdivision": "(d)(1)(B)1.d",
+          "label": "No combustible structures within 30 ft",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "surround_defensible_space",
+          "subdivision": "(d)(1)(B)1.e",
+          "label": "Defensible space per state law and local ordinance",
+          "evidence": "owner_attested",
+          "strength": 0.5
+        },
+        {
+          "item_id": "harden_class_a_roof",
+          "subdivision": "(d)(1)(B)2.a",
+          "label": "Class-A fire rated roof",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "harden_enclosed_eaves",
+          "subdivision": "(d)(1)(B)2.b",
+          "label": "Enclosed eaves",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "harden_vents",
+          "subdivision": "(d)(1)(B)2.c",
+          "label": "Fire-resistant vents",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "harden_windows",
+          "subdivision": "(d)(1)(B)2.d",
+          "label": "Multipane windows or functional shutters",
+          "evidence": "owner_attested",
+          "strength": 0.5
+        },
+        {
+          "item_id": "harden_6in_clearance",
+          "subdivision": "(d)(1)(B)2.e",
+          "label": "6 in of noncombustible clearance at the wall base",
+          "evidence": "unknown",
+          "strength": 0.0
+        }
+      ],
+      "open_data": {
+        "naip_veg_0_5ft_pct": 32.0,
+        "canopy_cover_pct": 57.0,
+        "slope_deg": 20.0,
+        "exposure_context": "high"
+      },
+      "memo_md": "# Wildfire mitigation evidence memo: structure SYN_BUTTE_0005\n\n_Synthetic fixture data for CI. This is not a real Butte County home._\n\nDraft only. You send every letter yourself; this tool never contacts an insurer.\n\n## We can't score this home yet\n- You attested “Cleared within 5 ft of the building”, but the imagery shows 32.0% vegetation in that ring (limit 25.0%) [src:fixture_ccr_title10_2644_9_2022-10-14] [src:fixture_p02_rubric_2026-11-27] [src:fixture_naip_butte_2024-06-15]\n- Items with evidence so far: 9 of the 12 items in 10 CCR § 2644.9 [src:fixture_ccr_title10_2644_9_2022-10-14]\n- The checklist below still shows what to document. The score and the appeal stay withheld until these are resolved.\n\n## What open data shows around this structure\n- Vegetation within 0 to 5 ft of the building on NAIP imagery: 32.0% [src:fixture_naip_butte_2024-06-15] [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Tree canopy cover in this structure's grid cell (LANDFIRE): 57.0% [src:fixture_landfire_butte_2024]\n- Average slope in that cell (USGS 3DEP): 20.0 degrees [src:fixture_3dep_butte_2026-11]\n- Open-data exposure context: high. This describes the surroundings; it is not an insurer's score.\n\n## Evidence per item\n- Fire Risk Reduction Community: no evidence yet\n- Firewise USA site in good standing: no evidence yet\n- Cleared vegetation and debris under decks: your attestation with a photo\n- Cleared within 5 ft of the building: your attestation with a photo\n- Only noncombustible fences and gates within 5 ft: your attestation\n- No combustible structures within 30 ft: your attestation with a photo\n- Defensible space per state law and local ordinance: your attestation\n- Class-A fire rated roof: your attestation with a photo\n- Enclosed eaves: your attestation with a photo\n- Fire-resistant vents: your attestation with a photo\n- Multipane windows or functional shutters: your attestation\n- 6 in of noncombustible clearance at the wall base: no evidence yet\n\n## Your rights under 10 CCR § 2644.9 [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Score request: your insurer must give your wildfire score in writing within 15 days of a completed application, at least 45 days before renewal and at least 75 days before nonrenewal [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Revised score: within 30 days of your request after you complete a mitigation measure [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Appeal: you can appeal orally or in writing; the insurer acknowledges in writing within 10 calendar days and decides within 30 days [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Check that the insurer's explanation covers:\n  - The range of possible scores\n  - Where your home falls in that range and how that affects your premium\n  - A detailed explanation of the score\n  - Mitigation that would lower your score\n  - The premium reduction each of those measures would bring\n- The insurer's response must include the Department of Insurance consumer hotline and the address of its Consumer Complaint Center.\n",
+      "grounding_passed": true,
+      "letters": {
+        "score_request": "[Your name]\n[Date]\n\nTo [insurer name], policy [policy number]:\n\nUnder 10 CCR § 2644.9, I request my property's wildfire score in writing, with the explanation the regulation requires: the range of possible scores, where my home falls in that range and how that affects my premium, a detailed explanation, the mitigation that would lower my score, and the premium reduction each of those measures would bring.\n\nMy home has the following mitigation:\n- Cleared vegetation and debris under decks (photo attached)\n- Cleared within 5 ft of the building (photo attached)\n- Only noncombustible fences and gates within 5 ft (my attestation)\n- No combustible structures within 30 ft (photo attached)\n- Defensible space per state law and local ordinance (my attestation)\n- Class-A fire rated roof (photo attached)\n- Enclosed eaves (photo attached)\n- Fire-resistant vents (photo attached)\n- Multipane windows or functional shutters (my attestation)\n\nThank you,\n[Your name]\n",
+        "revised_score_request": "[Your name]\n[Date]\n\nTo [insurer name], policy [policy number]:\n\nI have completed the mitigation listed below. Under 10 CCR § 2644.9, please send a revised wildfire score within 30 days of this request.\n\n- Cleared vegetation and debris under decks (photo attached)\n- Cleared within 5 ft of the building (photo attached)\n- Only noncombustible fences and gates within 5 ft (my attestation)\n- No combustible structures within 30 ft (photo attached)\n- Defensible space per state law and local ordinance (my attestation)\n- Class-A fire rated roof (photo attached)\n- Enclosed eaves (photo attached)\n- Fire-resistant vents (photo attached)\n- Multipane windows or functional shutters (my attestation)\n\nThank you,\n[Your name]\n"
+      }
+    },
+    {
+      "structure_id": "SYN_BUTTE_0006",
+      "structure_kind": "single_family",
+      "verdict": "abstain",
+      "abstain_reasons": [
+        "insufficient_coverage"
+      ],
+      "abstain_messages": [
+        "no building footprint matched this structure",
+        "no canopy or slope data covers this structure",
+        "evidence covers only 1 of the 12 items; at least 6 are needed"
+      ],
+      "ready": false,
+      "score": null,
+      "checklist": [
+        {
+          "item_id": "community_frrc",
+          "subdivision": "(d)(1)(A)",
+          "label": "Fire Risk Reduction Community",
+          "evidence": "unknown",
+          "strength": 0.0
+        },
+        {
+          "item_id": "community_firewise",
+          "subdivision": "(d)(1)(A)",
+          "label": "Firewise USA site in good standing",
+          "evidence": "unknown",
+          "strength": 0.0
+        },
+        {
+          "item_id": "surround_under_deck",
+          "subdivision": "(d)(1)(B)1.a",
+          "label": "Cleared vegetation and debris under decks",
+          "evidence": "unknown",
+          "strength": 0.0
+        },
+        {
+          "item_id": "surround_5ft",
+          "subdivision": "(d)(1)(B)1.b",
+          "label": "Cleared within 5 ft of the building",
+          "evidence": "unknown",
+          "strength": 0.0
+        },
+        {
+          "item_id": "surround_fence_5ft",
+          "subdivision": "(d)(1)(B)1.c",
+          "label": "Only noncombustible fences and gates within 5 ft",
+          "evidence": "unknown",
+          "strength": 0.0
+        },
+        {
+          "item_id": "surround_30ft_structures",
+          "subdivision": "(d)(1)(B)1.d",
+          "label": "No combustible structures within 30 ft",
+          "evidence": "unknown",
+          "strength": 0.0
+        },
+        {
+          "item_id": "surround_defensible_space",
+          "subdivision": "(d)(1)(B)1.e",
+          "label": "Defensible space per state law and local ordinance",
+          "evidence": "unknown",
+          "strength": 0.0
+        },
+        {
+          "item_id": "harden_class_a_roof",
+          "subdivision": "(d)(1)(B)2.a",
+          "label": "Class-A fire rated roof",
+          "evidence": "owner_attested",
+          "strength": 0.5
+        },
+        {
+          "item_id": "harden_enclosed_eaves",
+          "subdivision": "(d)(1)(B)2.b",
+          "label": "Enclosed eaves",
+          "evidence": "unknown",
+          "strength": 0.0
+        },
+        {
+          "item_id": "harden_vents",
+          "subdivision": "(d)(1)(B)2.c",
+          "label": "Fire-resistant vents",
+          "evidence": "unknown",
+          "strength": 0.0
+        },
+        {
+          "item_id": "harden_windows",
+          "subdivision": "(d)(1)(B)2.d",
+          "label": "Multipane windows or functional shutters",
+          "evidence": "unknown",
+          "strength": 0.0
+        },
+        {
+          "item_id": "harden_6in_clearance",
+          "subdivision": "(d)(1)(B)2.e",
+          "label": "6 in of noncombustible clearance at the wall base",
+          "evidence": "unknown",
+          "strength": 0.0
+        }
+      ],
+      "open_data": {
+        "naip_veg_0_5ft_pct": null,
+        "canopy_cover_pct": null,
+        "slope_deg": null,
+        "exposure_context": null
+      },
+      "memo_md": "# Wildfire mitigation evidence memo: structure SYN_BUTTE_0006\n\n_Synthetic fixture data for CI. This is not a real Butte County home._\n\nDraft only. You send every letter yourself; this tool never contacts an insurer.\n\n## We can't score this home yet\n- No building footprint matched this structure [src:fixture_ccr_title10_2644_9_2022-10-14] [src:fixture_p02_rubric_2026-11-27] [src:fixture_naip_butte_2024-06-15]\n- No canopy or slope data covers this structure [src:fixture_ccr_title10_2644_9_2022-10-14] [src:fixture_p02_rubric_2026-11-27] [src:fixture_naip_butte_2024-06-15]\n- Evidence covers only 1 of the 12 items; at least 6 are needed [src:fixture_ccr_title10_2644_9_2022-10-14] [src:fixture_p02_rubric_2026-11-27] [src:fixture_naip_butte_2024-06-15]\n- Items with evidence so far: 1 of the 12 items in 10 CCR § 2644.9 [src:fixture_ccr_title10_2644_9_2022-10-14]\n- The checklist below still shows what to document. The score and the appeal stay withheld until these are resolved.\n\n## What open data shows around this structure\n- No building footprint matched, so the ring around the building wasn't measured [src:fixture_naip_butte_2024-06-15]\n- No canopy or slope data covers this structure's grid cell.\n\n## Evidence per item\n- Fire Risk Reduction Community: no evidence yet\n- Firewise USA site in good standing: no evidence yet\n- Cleared vegetation and debris under decks: no evidence yet\n- Cleared within 5 ft of the building: no evidence yet\n- Only noncombustible fences and gates within 5 ft: no evidence yet\n- No combustible structures within 30 ft: no evidence yet\n- Defensible space per state law and local ordinance: no evidence yet\n- Class-A fire rated roof: your attestation\n- Enclosed eaves: no evidence yet\n- Fire-resistant vents: no evidence yet\n- Multipane windows or functional shutters: no evidence yet\n- 6 in of noncombustible clearance at the wall base: no evidence yet\n\n## Your rights under 10 CCR § 2644.9 [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Score request: your insurer must give your wildfire score in writing within 15 days of a completed application, at least 45 days before renewal and at least 75 days before nonrenewal [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Revised score: within 30 days of your request after you complete a mitigation measure [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Appeal: you can appeal orally or in writing; the insurer acknowledges in writing within 10 calendar days and decides within 30 days [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Check that the insurer's explanation covers:\n  - The range of possible scores\n  - Where your home falls in that range and how that affects your premium\n  - A detailed explanation of the score\n  - Mitigation that would lower your score\n  - The premium reduction each of those measures would bring\n- The insurer's response must include the Department of Insurance consumer hotline and the address of its Consumer Complaint Center.\n",
+      "grounding_passed": true,
+      "letters": {
+        "score_request": "[Your name]\n[Date]\n\nTo [insurer name], policy [policy number]:\n\nUnder 10 CCR § 2644.9, I request my property's wildfire score in writing, with the explanation the regulation requires: the range of possible scores, where my home falls in that range and how that affects my premium, a detailed explanation, the mitigation that would lower my score, and the premium reduction each of those measures would bring.\n\nMy home has the following mitigation:\n- Class-A fire rated roof (my attestation)\n\nThank you,\n[Your name]\n",
+        "revised_score_request": "[Your name]\n[Date]\n\nTo [insurer name], policy [policy number]:\n\nI have completed the mitigation listed below. Under 10 CCR § 2644.9, please send a revised wildfire score within 30 days of this request.\n\n- Class-A fire rated roof (my attestation)\n\nThank you,\n[Your name]\n"
+      }
+    },
+    {
+      "structure_id": "SYN_BUTTE_0007",
+      "structure_kind": "single_family",
+      "verdict": "abstain",
+      "abstain_reasons": [
+        "license_blocked"
+      ],
+      "abstain_messages": [
+        "a data source allows only non-commercial use"
+      ],
+      "ready": false,
+      "score": null,
+      "checklist": [
+        {
+          "item_id": "community_frrc",
+          "subdivision": "(d)(1)(A)",
+          "label": "Fire Risk Reduction Community",
+          "evidence": "unknown",
+          "strength": 0.0
+        },
+        {
+          "item_id": "community_firewise",
+          "subdivision": "(d)(1)(A)",
+          "label": "Firewise USA site in good standing",
+          "evidence": "open_data_observed",
+          "strength": 1.0
+        },
+        {
+          "item_id": "surround_under_deck",
+          "subdivision": "(d)(1)(B)1.a",
+          "label": "Cleared vegetation and debris under decks",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "surround_5ft",
+          "subdivision": "(d)(1)(B)1.b",
+          "label": "Cleared within 5 ft of the building",
+          "evidence": "open_data_observed",
+          "strength": 1.0
+        },
+        {
+          "item_id": "surround_fence_5ft",
+          "subdivision": "(d)(1)(B)1.c",
+          "label": "Only noncombustible fences and gates within 5 ft",
+          "evidence": "owner_attested",
+          "strength": 0.5
+        },
+        {
+          "item_id": "surround_30ft_structures",
+          "subdivision": "(d)(1)(B)1.d",
+          "label": "No combustible structures within 30 ft",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "surround_defensible_space",
+          "subdivision": "(d)(1)(B)1.e",
+          "label": "Defensible space per state law and local ordinance",
+          "evidence": "owner_attested",
+          "strength": 0.5
+        },
+        {
+          "item_id": "harden_class_a_roof",
+          "subdivision": "(d)(1)(B)2.a",
+          "label": "Class-A fire rated roof",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "harden_enclosed_eaves",
+          "subdivision": "(d)(1)(B)2.b",
+          "label": "Enclosed eaves",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "harden_vents",
+          "subdivision": "(d)(1)(B)2.c",
+          "label": "Fire-resistant vents",
+          "evidence": "owner_attested_with_photo",
+          "strength": 0.8
+        },
+        {
+          "item_id": "harden_windows",
+          "subdivision": "(d)(1)(B)2.d",
+          "label": "Multipane windows or functional shutters",
+          "evidence": "owner_attested",
+          "strength": 0.5
+        },
+        {
+          "item_id": "harden_6in_clearance",
+          "subdivision": "(d)(1)(B)2.e",
+          "label": "6 in of noncombustible clearance at the wall base",
+          "evidence": "unknown",
+          "strength": 0.0
+        }
+      ],
+      "open_data": {
+        "naip_veg_0_5ft_pct": 5.0,
+        "canopy_cover_pct": 29.0,
+        "slope_deg": 17.0,
+        "exposure_context": "elevated"
+      },
+      "memo_md": "# Wildfire mitigation evidence memo: structure SYN_BUTTE_0007\n\n_Synthetic fixture data for CI. This is not a real Butte County home._\n\nDraft only. You send every letter yourself; this tool never contacts an insurer.\n\n## We can't score this home yet\n- A data source allows only non-commercial use [src:fixture_ccr_title10_2644_9_2022-10-14] [src:fixture_p02_rubric_2026-11-27] [src:fixture_naip_butte_2024-06-15]\n- Items with evidence so far: 10 of the 12 items in 10 CCR § 2644.9 [src:fixture_ccr_title10_2644_9_2022-10-14]\n- The checklist below still shows what to document. The score and the appeal stay withheld until these are resolved.\n\n## What open data shows around this structure\n- Vegetation within 0 to 5 ft of the building on NAIP imagery: 5.0% [src:fixture_naip_butte_2024-06-15] [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Tree canopy cover in this structure's grid cell (LANDFIRE): 29.0% [src:fixture_nc_wildfire_model_butte_2026-01]\n- Average slope in that cell (USGS 3DEP): 17.0 degrees [src:fixture_3dep_butte_2026-11]\n- Open-data exposure context: elevated. This describes the surroundings; it is not an insurer's score.\n\n## Evidence per item\n- Fire Risk Reduction Community: no evidence yet\n- Firewise USA site in good standing: seen in pinned open data\n- Cleared vegetation and debris under decks: your attestation with a photo\n- Cleared within 5 ft of the building: seen in pinned open data\n- Only noncombustible fences and gates within 5 ft: your attestation\n- No combustible structures within 30 ft: your attestation with a photo\n- Defensible space per state law and local ordinance: your attestation\n- Class-A fire rated roof: your attestation with a photo\n- Enclosed eaves: your attestation with a photo\n- Fire-resistant vents: your attestation with a photo\n- Multipane windows or functional shutters: your attestation\n- 6 in of noncombustible clearance at the wall base: no evidence yet\n\n## Your rights under 10 CCR § 2644.9 [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Score request: your insurer must give your wildfire score in writing within 15 days of a completed application, at least 45 days before renewal and at least 75 days before nonrenewal [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Revised score: within 30 days of your request after you complete a mitigation measure [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Appeal: you can appeal orally or in writing; the insurer acknowledges in writing within 10 calendar days and decides within 30 days [src:fixture_ccr_title10_2644_9_2022-10-14]\n- Check that the insurer's explanation covers:\n  - The range of possible scores\n  - Where your home falls in that range and how that affects your premium\n  - A detailed explanation of the score\n  - Mitigation that would lower your score\n  - The premium reduction each of those measures would bring\n- The insurer's response must include the Department of Insurance consumer hotline and the address of its Consumer Complaint Center.\n",
+      "grounding_passed": true,
+      "letters": {
+        "score_request": "[Your name]\n[Date]\n\nTo [insurer name], policy [policy number]:\n\nUnder 10 CCR § 2644.9, I request my property's wildfire score in writing, with the explanation the regulation requires: the range of possible scores, where my home falls in that range and how that affects my premium, a detailed explanation, the mitigation that would lower my score, and the premium reduction each of those measures would bring.\n\nMy home has the following mitigation:\n- Firewise USA site in good standing (public records)\n- Cleared vegetation and debris under decks (photo attached)\n- Cleared within 5 ft of the building (public records)\n- Only noncombustible fences and gates within 5 ft (my attestation)\n- No combustible structures within 30 ft (photo attached)\n- Defensible space per state law and local ordinance (my attestation)\n- Class-A fire rated roof (photo attached)\n- Enclosed eaves (photo attached)\n- Fire-resistant vents (photo attached)\n- Multipane windows or functional shutters (my attestation)\n\nThank you,\n[Your name]\n",
+        "revised_score_request": "[Your name]\n[Date]\n\nTo [insurer name], policy [policy number]:\n\nI have completed the mitigation listed below. Under 10 CCR § 2644.9, please send a revised wildfire score within 30 days of this request.\n\n- Firewise USA site in good standing (public records)\n- Cleared vegetation and debris under decks (photo attached)\n- Cleared within 5 ft of the building (public records)\n- Only noncombustible fences and gates within 5 ft (my attestation)\n- No combustible structures within 30 ft (photo attached)\n- Defensible space per state law and local ordinance (my attestation)\n- Class-A fire rated roof (photo attached)\n- Enclosed eaves (photo attached)\n- Fire-resistant vents (photo attached)\n- Multipane windows or functional shutters (my attestation)\n\nThank you,\n[Your name]\n"
+      }
+    }
+  ]
+}

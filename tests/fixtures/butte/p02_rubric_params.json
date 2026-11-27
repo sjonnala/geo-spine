@@ -1,0 +1,41 @@
+{
+  "_fixture_note": "Product 02 rubric parameters (G-103 2.3 and 2.4, [D] values), pinned so memos can cite them.",
+  "method_ver": "0.1.0",
+  "strength_tenths": {
+    "open_data_observed": 10,
+    "owner_attested_with_photo": 8,
+    "owner_attested": 5,
+    "unknown": 0
+  },
+  "item_points": {
+    "community": 10,
+    "surroundings": 8,
+    "hardening": 8
+  },
+  "block_max": {
+    "community": 20,
+    "surroundings": 40,
+    "hardening": 40
+  },
+  "score_max": 100,
+  "ready_min_score": 60.0,
+  "min_known_items": 6,
+  "max_imagery_age_years": 3,
+  "max_hazard_age_years": 5,
+  "veg_5ft_clear_pct": 10.0,
+  "veg_5ft_conflict_pct": 25.0,
+  "exposure_context": {
+    "high_canopy_pct": 50.0,
+    "high_slope_deg": 30.0,
+    "elevated_canopy_pct": 25.0,
+    "elevated_slope_deg": 15.0
+  },
+  "deadline_days": {
+    "score_after_application": 15,
+    "score_before_renewal": 45,
+    "score_before_nonrenewal": 75,
+    "revised_score": 30,
+    "appeal_acknowledgement": 10,
+    "appeal_decision": 30
+  }
+}

@@ -1,0 +1,104 @@
+# SYNTHETIC Product 02 fixture catalog for CI. Regenerate with `make fixtures-p02`; do not hand-edit.
+releases:
+- release_id: fixture_naip_butte_2024-06-15
+  source_id: fixture_naip
+  vintage: '2024-06-15'
+  url: fixture://tests/fixtures/butte/naip_tiles_2024_synthetic.json
+  sha256: ef4172e5c10f9c8bb65696463ef807e499b4641aae412d8eed426130363a757f
+  license_spdx: LicenseRef-fixture-mirrors-US-PD
+  license_class: public_domain
+  commercial_ok: true
+  retrieved_at: '2026-11-27T00:00:00+00:00'
+  status: pinned
+  notes: SYNTHETIC NAIP-shaped tile index.
+- release_id: fixture_naip_butte_2022-06-01
+  source_id: fixture_naip
+  vintage: '2022-06-01'
+  url: fixture://tests/fixtures/butte/naip_tiles_2022_synthetic.json
+  sha256: 459e922694f960d57a9fa2a08093ad879897759047c3f5aa5138fcffb72ea421
+  license_spdx: LicenseRef-fixture-mirrors-US-PD
+  license_class: public_domain
+  commercial_ok: true
+  retrieved_at: '2026-11-27T00:00:00+00:00'
+  status: pinned
+  notes: SYNTHETIC Older NAIP-shaped tile index, used to test stale_release.
+- release_id: fixture_landfire_butte_2024
+  source_id: fixture_landfire
+  vintage: '2024'
+  url: fixture://tests/fixtures/butte/exposure_samples_synthetic.json
+  sha256: d1e4cd74786a85e841f36599b337c27e5c32a051d6b16c9a2b464611439fe47e
+  license_spdx: LicenseRef-fixture-mirrors-US-PD
+  license_class: public_domain
+  commercial_ok: true
+  retrieved_at: '2026-11-27T00:00:00+00:00'
+  status: pinned
+  notes: SYNTHETIC LANDFIRE-shaped canopy samples (shares a file with the 3DEP slope
+    samples).
+- release_id: fixture_3dep_butte_2026-11
+  source_id: fixture_3dep
+  vintage: 2026-11
+  url: fixture://tests/fixtures/butte/exposure_samples_synthetic.json
+  sha256: d1e4cd74786a85e841f36599b337c27e5c32a051d6b16c9a2b464611439fe47e
+  license_spdx: LicenseRef-fixture-mirrors-US-PD
+  license_class: public_domain
+  commercial_ok: true
+  retrieved_at: '2026-11-27T00:00:00+00:00'
+  status: pinned
+  notes: SYNTHETIC 3DEP-shaped slope samples (shares a file with the LANDFIRE canopy
+    samples).
+- release_id: fixture_overture_buildings_butte_2026-11
+  source_id: fixture_overture_buildings
+  vintage: 2026-11
+  url: fixture://tests/fixtures/butte/footprint_rings_synthetic.json
+  sha256: 23a459298fe3d83bbbe1268d447395de126027aaa6771a893c3850cdf23f5ebe
+  license_spdx: LicenseRef-fixture-mirrors-ODbL
+  license_class: share_alike
+  commercial_ok: true
+  retrieved_at: '2026-11-27T00:00:00+00:00'
+  status: pinned
+  notes: SYNTHETIC Footprint match and ring metrics; class mirrors ODbL.
+- release_id: fixture_community_lists_butte_2026-11
+  source_id: fixture_community_lists
+  vintage: 2026-11
+  url: fixture://tests/fixtures/butte/community_lists_synthetic.json
+  sha256: a55c4325eb67ffdb70d2f7484bc9dd4f8bcbbec042543beb576b1221f4a48bdb
+  license_spdx: LicenseRef-fixture-unverified-terms
+  license_class: restricted
+  commercial_ok: false
+  retrieved_at: '2026-11-27T00:00:00+00:00'
+  status: pinned
+  notes: SYNTHETIC Firewise USA / FRRC-shaped lists. Real list terms are unverified
+    [U], so the class is the stricter one.
+- release_id: fixture_ccr_title10_2644_9_2022-10-14
+  source_id: fixture_ccr_title10
+  vintage: '2022-10-14'
+  url: fixture://tests/fixtures/butte/ccr_2644_9_d1_items.json
+  sha256: 034e2f06bfa7a6fb335e732ea02c2f46084bab81bbbe619edba65468294b3c24
+  license_spdx: LicenseRef-fixture-state-regulation
+  license_class: public_domain
+  commercial_ok: true
+  retrieved_at: '2026-11-27T00:00:00+00:00'
+  status: pinned
+  notes: SYNTHETIC Fixture copy of the 10 CCR 2644.9(d)(1) item list.
+- release_id: fixture_p02_rubric_2026-11-27
+  source_id: fixture_p02_rubric
+  vintage: '2026-11-27'
+  url: fixture://tests/fixtures/butte/p02_rubric_params.json
+  sha256: 335ea213f441db38cd07241016f5dea57667932fdfc41acd9974fd4627450dc6
+  license_spdx: LicenseRef-fixture-project-params
+  license_class: permissive
+  commercial_ok: true
+  retrieved_at: '2026-11-27T00:00:00+00:00'
+  status: pinned
+  notes: SYNTHETIC Product 02 rubric weights and thresholds.
+- release_id: fixture_nc_wildfire_model_butte_2026-01
+  source_id: fixture_nc_wildfire_model
+  vintage: 2026-01
+  url: fixture://tests/fixtures/butte/nc_wildfire_model_synthetic.json
+  sha256: 1813028b1a5c8225480e71aded10c3f1bbb3d3cbf666b341b34435741230481f
+  license_spdx: LicenseRef-fixture-noncommercial
+  license_class: non_commercial
+  commercial_ok: false
+  retrieved_at: '2026-11-27T00:00:00+00:00'
+  status: pinned
+  notes: SYNTHETIC Non-commercial stand-in, used to test license_blocked.

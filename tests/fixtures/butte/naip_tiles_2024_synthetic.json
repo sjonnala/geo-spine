@@ -1,0 +1,10 @@
+{
+  "_fixture_note": "SYNTHETIC fixture for CI. Not real Butte County data; no real structure, address or person. NAIP-shaped tile index.",
+  "acquisition_date": "2024-06-15",
+  "tiles": [
+    {
+      "tile_id": "SYN-NAIP-BUTTE-2024-06-15-A",
+      "gsd_m": 0.6
+    }
+  ]
+}

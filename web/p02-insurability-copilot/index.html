@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Product 02: Insurability Copilot (California)</title>
+  <!-- Zero build, zero third-party scripts: plain HTML, CSS and two local JS files. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Insurability Copilot · California · draft only, you send everything</h1>
+    <p class="muted">Evidence and appeal assistant for the Safer from Wildfires regulation (10 CCR § 2644.9).
+      It never contacts an insurer and never estimates your premium.</p>
+    <p class="banner">Synthetic fixture data for CI. These are not real Butte County homes.</p>
+    <label class="muted">Structure
+      <select id="picker" aria-label="Choose a synthetic structure"></select>
+    </label>
+  </header>
+  <main>
+    <section id="structure" aria-labelledby="h-structure">
+      <h2 id="h-structure">Your structure</h2>
+      <svg id="rings" viewBox="0 0 220 220" width="220" height="220" role="img"
+        aria-label="Schematic of the building with its 0 to 5 ft and 5 to 30 ft rings">
+        <circle cx="110" cy="110" r="100" fill="#eef3ea" stroke="#9db58f" stroke-dasharray="4 3"></circle>
+        <circle cx="110" cy="110" r="52" fill="#f6efe0" stroke="#c9a85c" stroke-dasharray="4 3"></circle>
+        <rect x="82" y="82" width="56" height="56" fill="#cfd6e2" stroke="#56627a"></rect>
+        <text x="110" y="114" text-anchor="middle" font-size="11">building</text>
+        <text x="110" y="40" text-anchor="middle" font-size="10">0 to 5 ft</text>
+        <text x="110" y="17" text-anchor="middle" font-size="10">5 to 30 ft</text>
+      </svg>
+      <dl id="facts"></dl>
+      <p class="muted">Address: only what you type, never looked up · Owner name: never fetched ·
+        APN: hidden by default</p>
+    </section>
+    <section id="completeness" aria-labelledby="h-completeness">
+      <h2 id="h-completeness">Documentation completeness</h2>
+      <div id="score-panel"></div>
+    </section>
+    <section class="wide" aria-labelledby="h-evidence">
+      <h2 id="h-evidence">Evidence per item (10 CCR § 2644.9(d)(1))</h2>
+      <table>
+        <thead><tr><th>Item</th><th>Subdivision</th><th>Evidence</th><th class="num">Strength</th></tr></thead>
+        <tbody id="checklist"></tbody>
+      </table>
+    </section>
+    <section class="wide" aria-labelledby="h-rights">
+      <h2 id="h-rights">Your rights (10 CCR § 2644.9)</h2>
+      <p class="muted">Enter the dates you know; deadlines are computed in your browser and never sent anywhere.</p>
+      <div class="dates" id="date-inputs">
+        <label>Application completed <input type="date" data-field="application_completed"></label>
+        <label>Policy renewal <input type="date" data-field="renewal"></label>
+        <label>Nonrenewal takes effect <input type="date" data-field="nonrenewal_effective"></label>
+        <label>Revised score requested <input type="date" data-field="revised_score_requested"></label>
+        <label>Insurer received your appeal <input type="date" data-field="appeal_received"></label>
+      </div>
+      <table>
+        <thead><tr><th>Deadline</th><th>Rule</th><th>Due</th></tr></thead>
+        <tbody id="deadlines"></tbody>
+      </table>
+      <h2>Draft letters</h2>
+      <div id="letters"></div>
+      <details>
+        <summary>Grounded memo (every figure checked against pinned data)</summary>
+        <pre id="memo"></pre>
+      </details>
+    </section>
+  </main>
+  <footer>
+    <p id="attribution"></p>
+    <p>Engineering analysis of the regulation, not legal advice.</p>
+  </footer>
+  <script src="deadlines.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

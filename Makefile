@@ -1,6 +1,6 @@
 PY ?= python3
 
-.PHONY: ci test lint typecheck boundaries license-guard verify-memos catalog web fixtures tiles valhalla-up
+.PHONY: ci test lint typecheck boundaries license-guard verify-memos catalog web fixtures fixtures-p02 tiles valhalla-up
 
 ci: lint typecheck boundaries catalog license-guard verify-memos web test
 
@@ -18,23 +18,36 @@ boundaries:
 	lint-imports
 
 catalog:
-	$(PY) -m spine.catalog.releases data/catalog/releases.yaml tests/fixtures/releases.fixture.yaml
+	$(PY) -m spine.catalog.releases data/catalog/releases.yaml tests/fixtures/releases.fixture.yaml \
+		tests/fixtures/releases_p02.fixture.yaml
 
 license-guard:
 	$(PY) tools/ci/license_guard.py data/manifests/p01_santa_clara_fixture.json \
 		--catalog tests/fixtures/releases.fixture.yaml
+	$(PY) tools/ci/license_guard.py data/manifests/p02_butte_fixture.json \
+		--catalog tests/fixtures/releases_p02.fixture.yaml
 
 verify-memos:
 	$(PY) -m spine.decision.grounding_verifier tests/fixtures/memos/p01_santa_clara_memo.md \
 		tests/fixtures/memos/p01_santa_clara_features.json
+	$(PY) -m spine.decision.grounding_verifier tests/fixtures/memos/p02_butte_memo.md \
+		tests/fixtures/memos/p02_butte_features.json
+	$(PY) -m spine.decision.grounding_verifier tests/fixtures/memos/p02_butte_abstain_memo.md \
+		tests/fixtures/memos/p02_butte_abstain_features.json
 
 # Static viewer: the JavaScript must parse (no build step, no bundler).
 web:
 	node --check web/p01-access-gap/app.js
+	node --check web/p02-insurability-copilot/app.js
+	node --check web/p02-insurability-copilot/deadlines.js
 
 # Regenerate the synthetic Santa Clara fixtures (deterministic) and their pinned checksums.
 fixtures:
 	PYTHONPATH=src $(PY) tools/fixtures/make_santa_clara_fixtures.py
+
+# Regenerate the synthetic Butte County fixtures for Product 02 (needs h3; CI checks they match).
+fixtures-p02:
+	PYTHONPATH=src $(PY) tools/fixtures/make_butte_fixtures.py
 
 # Product 01 PMTiles from the fixture export (needs tippecanoe; not part of `make ci`).
 tiles:

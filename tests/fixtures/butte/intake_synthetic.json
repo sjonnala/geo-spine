@@ -1,0 +1,165 @@
+{
+  "_fixture_note": "SYNTHETIC fixture for CI. Not real Butte County data; no real structure, address or person. Homeowner intake: user-supplied, not a release.",
+  "structures": [
+    {
+      "structure_id": "SYN_BUTTE_0001",
+      "fixture": "synthetic",
+      "state": "CA",
+      "county_fips": "06007",
+      "community_id": "SYN-COMM-PARADISE-RIDGE",
+      "structure_kind": "single_family",
+      "lat": 39.7596,
+      "lon": -121.6219,
+      "imagery_release_id": "fixture_naip_butte_2024-06-15",
+      "imagery_vintage": "2024-06-15",
+      "hazard_release_id": "fixture_landfire_butte_2024",
+      "hazard_vintage": "2024-01-01",
+      "attested_evidence": {
+        "surround_under_deck": "owner_attested_with_photo",
+        "surround_fence_5ft": "owner_attested",
+        "surround_30ft_structures": "owner_attested_with_photo",
+        "surround_defensible_space": "owner_attested",
+        "harden_class_a_roof": "owner_attested_with_photo",
+        "harden_enclosed_eaves": "owner_attested_with_photo",
+        "harden_vents": "owner_attested_with_photo",
+        "harden_windows": "owner_attested"
+      }
+    },
+    {
+      "structure_id": "SYN_BUTTE_0002",
+      "fixture": "synthetic",
+      "state": "CA",
+      "county_fips": "06007",
+      "community_id": "SYN-COMM-MAGALIA",
+      "structure_kind": "duplex",
+      "lat": 39.7796,
+      "lon": -121.6219,
+      "imagery_release_id": "fixture_naip_butte_2024-06-15",
+      "imagery_vintage": "2024-06-15",
+      "hazard_release_id": "fixture_landfire_butte_2024",
+      "hazard_vintage": "2024-01-01",
+      "attested_evidence": {
+        "surround_under_deck": "owner_attested",
+        "surround_fence_5ft": "owner_attested",
+        "surround_30ft_structures": "owner_attested",
+        "harden_class_a_roof": "owner_attested",
+        "harden_vents": "owner_attested",
+        "harden_windows": "owner_attested"
+      }
+    },
+    {
+      "structure_id": "SYN_BUTTE_0003",
+      "fixture": "synthetic",
+      "state": "CA",
+      "county_fips": "06007",
+      "community_id": "SYN-COMM-PARADISE-RIDGE",
+      "structure_kind": "commercial",
+      "lat": 39.7396,
+      "lon": -121.6219,
+      "imagery_release_id": "fixture_naip_butte_2024-06-15",
+      "imagery_vintage": "2024-06-15",
+      "hazard_release_id": "fixture_landfire_butte_2024",
+      "hazard_vintage": "2024-01-01",
+      "attested_evidence": {
+        "surround_under_deck": "owner_attested_with_photo",
+        "surround_fence_5ft": "owner_attested",
+        "surround_30ft_structures": "owner_attested_with_photo",
+        "surround_defensible_space": "owner_attested",
+        "harden_class_a_roof": "owner_attested_with_photo",
+        "harden_enclosed_eaves": "owner_attested_with_photo",
+        "harden_vents": "owner_attested_with_photo",
+        "harden_windows": "owner_attested"
+      }
+    },
+    {
+      "structure_id": "SYN_BUTTE_0004",
+      "fixture": "synthetic",
+      "state": "CA",
+      "county_fips": "06007",
+      "community_id": "SYN-COMM-PARADISE-RIDGE",
+      "structure_kind": "single_family",
+      "lat": 39.7596,
+      "lon": -121.5969,
+      "imagery_release_id": "fixture_naip_butte_2022-06-01",
+      "imagery_vintage": "2022-06-01",
+      "hazard_release_id": "fixture_landfire_butte_2024",
+      "hazard_vintage": "2024-01-01",
+      "attested_evidence": {
+        "surround_under_deck": "owner_attested_with_photo",
+        "surround_fence_5ft": "owner_attested",
+        "surround_30ft_structures": "owner_attested_with_photo",
+        "surround_defensible_space": "owner_attested",
+        "harden_class_a_roof": "owner_attested_with_photo",
+        "harden_enclosed_eaves": "owner_attested_with_photo",
+        "harden_vents": "owner_attested_with_photo",
+        "harden_windows": "owner_attested"
+      }
+    },
+    {
+      "structure_id": "SYN_BUTTE_0005",
+      "fixture": "synthetic",
+      "state": "CA",
+      "county_fips": "06007",
+      "community_id": "SYN-COMM-MAGALIA",
+      "structure_kind": "single_family",
+      "lat": 39.7596,
+      "lon": -121.6469,
+      "imagery_release_id": "fixture_naip_butte_2024-06-15",
+      "imagery_vintage": "2024-06-15",
+      "hazard_release_id": "fixture_landfire_butte_2024",
+      "hazard_vintage": "2024-01-01",
+      "attested_evidence": {
+        "surround_under_deck": "owner_attested_with_photo",
+        "surround_fence_5ft": "owner_attested",
+        "surround_30ft_structures": "owner_attested_with_photo",
+        "surround_defensible_space": "owner_attested",
+        "harden_class_a_roof": "owner_attested_with_photo",
+        "harden_enclosed_eaves": "owner_attested_with_photo",
+        "harden_vents": "owner_attested_with_photo",
+        "harden_windows": "owner_attested",
+        "surround_5ft": "owner_attested_with_photo"
+      }
+    },
+    {
+      "structure_id": "SYN_BUTTE_0006",
+      "fixture": "synthetic",
+      "state": "CA",
+      "county_fips": "06007",
+      "community_id": "SYN-COMM-MAGALIA",
+      "structure_kind": "single_family",
+      "lat": 39.7396,
+      "lon": -121.5969,
+      "imagery_release_id": "fixture_naip_butte_2024-06-15",
+      "imagery_vintage": "2024-06-15",
+      "hazard_release_id": "fixture_landfire_butte_2024",
+      "hazard_vintage": "2024-01-01",
+      "attested_evidence": {
+        "harden_class_a_roof": "owner_attested"
+      }
+    },
+    {
+      "structure_id": "SYN_BUTTE_0007",
+      "fixture": "synthetic",
+      "state": "CA",
+      "county_fips": "06007",
+      "community_id": "SYN-COMM-PARADISE-RIDGE",
+      "structure_kind": "single_family",
+      "lat": 39.7796,
+      "lon": -121.5969,
+      "imagery_release_id": "fixture_naip_butte_2024-06-15",
+      "imagery_vintage": "2024-06-15",
+      "hazard_release_id": "fixture_nc_wildfire_model_butte_2026-01",
+      "hazard_vintage": "2026-01-15",
+      "attested_evidence": {
+        "surround_under_deck": "owner_attested_with_photo",
+        "surround_fence_5ft": "owner_attested",
+        "surround_30ft_structures": "owner_attested_with_photo",
+        "surround_defensible_space": "owner_attested",
+        "harden_class_a_roof": "owner_attested_with_photo",
+        "harden_enclosed_eaves": "owner_attested_with_photo",
+        "harden_vents": "owner_attested_with_photo",
+        "harden_windows": "owner_attested"
+      }
+    }
+  ]
+}

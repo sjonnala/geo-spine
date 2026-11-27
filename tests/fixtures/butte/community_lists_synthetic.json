@@ -1,0 +1,9 @@
+{
+  "_fixture_note": "SYNTHETIC fixture for CI. Not real Butte County data; no real structure, address or person. Community lists with synthetic ids.",
+  "firewise_usa_sites_in_good_standing": [
+    "SYN-COMM-PARADISE-RIDGE"
+  ],
+  "board_of_forestry_frrc": [
+    "SYN-COMM-CONCOW"
+  ]
+}
