@@ -35,3 +35,15 @@ releases:
   retrieved_at: '2026-11-27T00:00:00+00:00'
   status: pinned
   notes: SYNTHETIC hand-built isochrone, not a Valhalla recording. Class mirrors ODbL.
+- release_id: fixture_valhalla_matrix_sc_2026-11-27
+  source_id: fixture_valhalla_matrix
+  vintage: '2026-11-27'
+  url: fixture://tests/fixtures/valhalla/cassettes/sources_to_targets-665979f2edcee8cf.json
+  sha256: 9659db8158b88fbc9fc293cfe85aefcd06b17010122289663ca38012472f9ebe
+  license_spdx: LicenseRef-fixture-mirrors-ODbL
+  license_class: share_alike
+  commercial_ok: true
+  retrieved_at: '2026-11-27T00:00:00+00:00'
+  status: pinned
+  notes: SYNTHETIC formula-built OD matrix cassette, not a Valhalla recording. Class
+    mirrors ODbL.

@@ -7,9 +7,8 @@
 /* global maplibregl, pmtiles */
 "use strict";
 
-const ATTRIBUTION =
-  "© OpenStreetMap contributors (ODbL) · CA Dept. of Social Services licensing data · " +
-  "U.S. Census Bureau ACS 5-year";
+// Kept on one line so tests/test_web_viewer.py can match it exactly against p01_tiles.ATTRIBUTION.
+const ATTRIBUTION = "© OpenStreetMap contributors (ODbL) · CA Dept. of Social Services licensing data · U.S. Census Bureau ACS 5-year";
 const GAP_TERM = "licensed-capacity gap";
 // 4-class sequential ramp on seats per child; darkest = least access.
 const RAMP = ["step", ["get", "seats_per_child_2sfca"], "#08306b", 0.1, "#2171b5", 0.25, "#6baed6", 0.5, "#c6dbef"];
