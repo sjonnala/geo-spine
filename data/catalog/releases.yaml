@@ -1,0 +1,148 @@
+# data/catalog/releases.yaml: the only place a source URL may appear (ADR-001, ADR-003).
+#
+# Seeded from the APPROVED G-101 "Pinned source catalog" (11 rows) plus acs5_2023 (see its notes).
+# Every row here is status: pending_download. Its release_id is a proposal, its url is the landing
+# page, and sha256 + the dated file URL are filled on first download. A pending row passes catalog
+# validation but can never feed a published build (spine.catalog.releases.assert_publishable).
+# CI and tests use the synthetic fixture catalog at tests/fixtures/releases.fixture.yaml instead.
+#
+# Tags carried from G-101: [V] verified on the source, [V2] two sources, [D] decision, [U] unverified.
+# Licence readings are engineering analysis, not legal advice.
+
+releases:
+  - release_id: calfire_dins_2026-02-04
+    source_id: calfire_dins
+    vintage: "2026-02-04"  # dataset last modified [V]
+    url: https://gis.data.cnra.ca.gov/datasets/CALFIRE-Forestry::cal-fire-damage-inspection-dins-data
+    license_spdx: CC-BY-4.0
+    license_class: permissive
+    commercial_ok: true
+    status: pending_download
+    notes: >-
+      CC-BY-4.0 per data.gov; ArcGIS metadata states no licence. Attribute CAL FIRE / OSFM [V].
+      Structure points; undamaged structures recorded only since 2018. YEARBUILT=1900 looks like a
+      placeholder and parcel-joined fields are noisy [V].
+
+  - release_id: cdss_ccl_2026-11-02
+    source_id: cdss_ccl
+    vintage: "2026-11-02"  # last updated [V]
+    url: https://data.chhs.ca.gov/dataset/community-care-licensing-facilities
+    license_spdx: LicenseRef-CHHS-Terms-of-Use
+    license_class: restricted
+    commercial_ok: false
+    status: pending_download
+    notes: >-
+      data.gov says CC-BY but CHHS shows "No License Provided" and its Terms require approval for
+      commercial use [V]; stricter reading pinned [D]. Family child care home street addresses are
+      restricted (H&SC 1596.86) [V], so FCCHs are zip_centroid or suppressed. Exact column names
+      and lat/long availability are [U]: check on first download. Licensee names never leave
+      curation (ADR-005 P1).
+
+  - release_id: acs5_2023
+    source_id: census_acs5
+    vintage: "2023"
+    url: https://www.census.gov/programs-surveys/acs
+    license_spdx: LicenseRef-US-Government-Public-Domain
+    license_class: public_domain
+    commercial_ok: true
+    status: pending_download
+    notes: >-
+      Added in G-201, not part of G-101's 11-row seed: Product 01 needs children aged 0-5
+      (tables B01001 / B09001) and ADR-004's examples cite acs5_2023. Table choice and
+      vintage are [D]; confirm before first download.
+
+  - release_id: google_aef_2025
+    source_id: google_aef
+    vintage: "2025"  # embedding years now span 2017-2025 [V2]
+    url: https://developers.google.com/earth-engine/datasets/catalog/GOOGLE_SATELLITE_EMBEDDING_V1_ANNUAL
+    license_spdx: CC-BY-4.0
+    license_class: permissive
+    commercial_ok: true
+    status: pending_download
+    notes: >-
+      Data licence CC-BY-4.0 [V2]; attribution "The AlphaEarth Foundations Satellite Embedding
+      dataset is produced by Google and Google DeepMind." Pull the COGs from GCS or Source
+      Cooperative to avoid Earth Engine platform terms, which are paid for commercial use [D].
+
+  - release_id: osm_geofabrik_ca_2026-11-20
+    source_id: osm_geofabrik_ca
+    vintage: "2026-11-20"  # proposed dated extract [D]; never california-latest.osm.pbf
+    url: https://download.geofabrik.de/north-america/us.html
+    license_spdx: ODbL-1.0
+    license_class: share_alike
+    commercial_ok: true
+    status: pending_download
+    notes: >-
+      California extract is 1.2 GB [V]. Feeds Valhalla routing tiles; isochrone catchments are an
+      ODbL derivative database (ADR-005 L1). Build tiles on the Mac first and record peak memory
+      here. Oracle Always Free Ampere A1 is now 2 OCPU / 12 GB (was 4/24) [V2]: serve prebuilt
+      tiles there, rebuild only Bay Area-sized extracts.
+
+  - release_id: overture_transportation_2026-11
+    source_id: overture_transportation
+    vintage: "2026-11"  # pick the dated monthly release on download [U]
+    url: https://docs.overturemaps.org/attribution/
+    license_spdx: ODbL-1.0
+    license_class: share_alike
+    commercial_ok: true
+    status: pending_download
+
+  - release_id: overture_places_2026-11
+    source_id: overture_places
+    vintage: "2026-11"
+    url: https://docs.overturemaps.org/attribution/
+    license_spdx: CDLA-Permissive-2.0
+    license_class: permissive
+    commercial_ok: true
+    status: pending_download
+    notes: Per-source licences, mostly CDLA-Permissive-2.0, plus Apache-2.0 (Foursquare) and CC0 [V].
+
+  - release_id: usda_naip_2024
+    source_id: usda_naip
+    vintage: "2024"  # California NAIP vintage to confirm [U]
+    url: https://catalog.data.gov/dataset/national-agriculture-imagery-program-naip-imagery
+    license_spdx: LicenseRef-US-Government-Public-Domain
+    license_class: public_domain
+    commercial_ok: true
+    status: pending_download
+
+  - release_id: usgs_3dep_2026-11
+    source_id: usgs_3dep
+    vintage: "2026-11"  # project-based; pin the specific project on download [U]
+    url: https://catalog.data.gov/dataset/lidar-point-cloud-usgs-national-map-3dep-downloadable-data-collection
+    license_spdx: LicenseRef-US-Government-Public-Domain
+    license_class: public_domain
+    commercial_ok: true
+    status: pending_download
+
+  - release_id: landfire_2024
+    source_id: landfire
+    vintage: "2024"  # update cycle [U]
+    url: https://agdatacommons.nal.usda.gov/articles/dataset/LANDFIRE/24661710
+    license_spdx: LicenseRef-US-Government-Public-Domain
+    license_class: public_domain
+    commercial_ok: true
+    status: pending_download
+
+  - release_id: carbon_mapper_2026-01-13
+    source_id: carbon_mapper
+    vintage: "2026-01-13"  # Terms of Use date [V]
+    url: https://carbonmapper.org/terms
+    license_spdx: LicenseRef-CarbonMapper-Terms-2026-01-13
+    license_class: non_commercial
+    commercial_ok: false
+    status: pending_download
+    notes: >-
+      NOT CC BY-NC: a custom non-commercial, revocable, non-sublicensable licence in the Terms of
+      Use dated 13 Jan 2026 [V]. Attribution required (s3.3); redistributions carry the same NC terms
+      (s3.4). Derivatives live under quarantine/nc/ only (ADR-005 L2).
+
+  - release_id: cfp_stats_2026-09
+    source_id: cfp_stats
+    vintage: "2026-09"
+    url: https://www.cfpnet.com/?p=1603
+    license_spdx: LicenseRef-not-stated
+    license_class: restricted
+    commercial_ok: false
+    status: pending_download
+    notes: Licence not stated [U]; cite figures only, never redistribute the data.

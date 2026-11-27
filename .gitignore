@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+build/
+dist/
+# ADR-003: raw downloads are immutable, checksum-verified and never committed
+data/raw/
+data/curated/
+data/features/
+data/decisions/
+quarantine/
+tiles/
