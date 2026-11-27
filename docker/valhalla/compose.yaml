@@ -1,0 +1,61 @@
+# Valhalla routing for the spine (ADR-003). CI never starts this: tests replay recorded responses
+# from tests/fixtures/valhalla/cassettes/ (src/spine/compute/valhalla_client.py, VALHALLA_MODE=replay).
+#
+# Image pin, checked on GHCR 2026-11-27: ghcr.io/valhalla/valhalla-scripted:3.9.3 is a multi-arch
+# OCI index (linux/amd64 + linux/arm64). The digest below pins that exact index, so the same compose
+# file runs on an Apple-silicon Mac and an Oracle Ampere A1 (ARM64) VM. Never use `latest` (ADR-001).
+#
+# Sizing (G-101 Q7):
+# - Oracle Always Free Ampere A1 is now 2 OCPU / 12 GB RAM / 200 GB block storage (cut from
+#   4 OCPU / 24 GB around June 2026). The VM can be reclaimed if CPU, network and memory all stay
+#   under 20% (95th percentile) for 7 days.
+# - Valhalla publishes no official RAM figure; serving needs far less memory than building tiles.
+# - Plan: build the Santa Clara / Bay Area tiles on the Mac first and record the build container's
+#   peak memory and the tile directory size in data/catalog/releases.yaml notes. Use the 12 GB VM to
+#   SERVE prebuilt tiles (copy ./custom_files/valhalla_tiles.tar), and rebuild there only for
+#   Bay Area-sized extracts. The full California extract is 1.2 GB of .osm.pbf.
+# - server_threads=2 matches the 2 OCPU VM; the memory limit leaves headroom for the OS.
+#
+# Usage:
+#   cp some-dated-extract.osm.pbf docker/valhalla/custom_files/   # pin the dated file in releases.yaml
+#   docker compose -f docker/valhalla/compose.yaml up -d
+#   VALHALLA_MODE=record VALHALLA_URL=http://localhost:8002 <script that calls ValhallaClient>
+#
+# Routing output built from OSM is an ODbL derivative database (ADR-005 L1): attribute
+# "© OpenStreetMap contributors".
+name: geo-spine-valhalla
+
+services:
+  valhalla:
+    image: ghcr.io/valhalla/valhalla-scripted:3.9.3@sha256:d438516425e785442562852d2f38d048478b6895bb15850491b81332f85bc4be
+    container_name: geo-spine-valhalla
+    ports:
+      - "127.0.0.1:8002:8002"   # local only; put a reverse proxy with auth in front on a public VM
+    volumes:
+      - ./custom_files:/custom_files
+    environment:
+      # Variable names follow the valhalla/docker README for the scripted image; confirm them on the
+      # first real build [U: not exercised in CI].
+      # Never download an undated extract at start-up: tiles come from the pinned .osm.pbf you copied.
+      tile_urls: ""
+      server_threads: "2"
+      serve_tiles: "True"
+      build_elevation: "False"
+      build_admins: "True"
+      build_time_zones: "True"
+      build_transit: "False"
+      force_rebuild: "False"
+      update_existing_config: "True"
+      use_tiles_ignore_pbf: "True"
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 10g   # of the 12 GB A1 VM; raise on the Mac for a full California build
+    restart: unless-stopped
+    healthcheck:  # assumes curl exists in the image [U]; drop the block if the first run says otherwise
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8002/status || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 10
+      start_period: 10m

@@ -10,7 +10,12 @@ Nothing here is real data. Every value is generated from formulas and a fixed se
 * tests/fixtures/santa_clara/facility.parquet: curated.facility as GeoParquet (EPSG:4326 WKB).
 * tests/fixtures/santa_clara/children.parquet: ACS-shaped children aged 0-5 per H3 res 8 cell.
 * tests/fixtures/releases.fixture.yaml: pinned sha256 for the three synthetic "releases".
-* tests/fixtures/memos/p01_santa_clara_{memo.md,features.json}: the Product 01 memo + its rows.
+* tests/fixtures/valhalla/cassettes/sources_to_targets-*.json: a SYNTHETIC replay cassette shaped
+  like a Valhalla ``/sources_to_targets`` response (cell centroids x licensed facilities). Drive
+  times come from a formula (straight-line km at a fixed speed, plus a detour for crossing the
+  same northern "barrier" as the isochrone). It was NOT recorded from a Valhalla server.
+* tests/fixtures/memos/p01_santa_clara_{memo.md,features.json}: the Product 01 2SFCA memo + rows.
+* web/p01-access-gap/data/{cells,centers}.geojson + sharing.json: the static viewer's fixture export.
 
 Run: ``make fixtures`` (or ``PYTHONPATH=src python3 tools/fixtures/make_santa_clara_fixtures.py``).
 """
@@ -33,9 +38,21 @@ import yaml
 
 from spine.catalog.models import LicenseClass, Provenance
 from spine.compute.isochrone_diff import isochrone_diff, parse_valhalla_isochrone
-from spine.decision.childcare_gap import FacilitySeat, P01Releases, compute_gap, feature_rows
+from spine.compute.valhalla_client import ValhallaClient, matrix_request
+from spine.decision.childcare_gap import (
+    FacilitySeat,
+    P01Releases,
+    RegionAllocation,
+    allocate_region,
+    feature_rows,
+)
 from spine.identity.facilities import curate_cdss_rows, facility_columns, read_cdss_csv
 from spine.surface.p01_memo import build_memo
+from spine.surface.p01_tiles import (
+    cells_feature_collection,
+    centers_feature_collection,
+    write_geojson,
+)
 
 ROOT = Path(__file__).resolve().parents[2]
 FX = ROOT / "tests" / "fixtures"
@@ -44,11 +61,25 @@ ORIGIN_LAT, ORIGIN_LON = 37.3541, -121.9552  # near Santa Clara city centre
 ORIGIN = h3.latlng_to_cell(ORIGIN_LAT, ORIGIN_LON, 8)
 RADIUS_MI = 2.0
 BUILD_ID = "fixture-g201"
+TILES_BUILD_ID = "fixture-g301"
+WEB = ROOT / "web" / "p01-access-gap" / "data"
+CASSETTES = FX / "valhalla" / "cassettes"
 GENERATED_AT = datetime(2026, 11, 27, 0, 0, tzinfo=UTC)
 REL = P01Releases(
     acs="fixture_acs5_sc_2023",
     cdss="fixture_cdss_ccl_sc_2026-11-02",
     routing="fixture_valhalla_iso_sc_2026-11-27",
+    matrix="fixture_valhalla_matrix_sc_2026-11-27",
+)
+# Synthetic drive-time model for the OD matrix: fixed overhead + straight-line km at ~25 km/h,
+# plus a detour when the trip crosses the northern barrier the isochrone fixture also mimics.
+MATRIX_BASE_MIN = 1.5
+MATRIX_MIN_PER_KM = 2.4
+BARRIER_NORTH_KM = 1.4
+BARRIER_DETOUR_MIN = 6.0
+MATRIX_NOTE = (
+    "SYNTHETIC REPLAY CASSETTE. Shaped like a Valhalla /sources_to_targets response but NOT recorded "
+    "from a Valhalla server: drive times come from a formula in tools/fixtures/make_santa_clara_fixtures.py."
 )
 SYNTHETIC_NOTE = (
     "SYNTHETIC, HAND-BUILT FIXTURE. Not recorded from a Valhalla server and not real routing output. "
@@ -212,6 +243,32 @@ def write_facility_geoparquet(curated: list[tuple[object, float | None, float | 
     pq.write_table(table, path)
 
 
+def _north_of_barrier(lat: float) -> bool:
+    return (lat - ORIGIN_LAT) * 110.574 > BARRIER_NORTH_KM
+
+
+def synthetic_minutes(src: tuple[float, float], dst: tuple[float, float]) -> float:
+    km = h3.great_circle_distance(src, dst, unit="km")
+    detour = BARRIER_DETOUR_MIN if _north_of_barrier(src[0]) != _north_of_barrier(dst[0]) else 0.0
+    return float(MATRIX_BASE_MIN + MATRIX_MIN_PER_KM * km + detour)
+
+
+def make_matrix_cassette(
+    cells: list[str], facilities: list[tuple[str, float, float]]
+) -> tuple[Path, dict[str, object]]:
+    """Write the synthetic OD cassette (concise ``durations`` shape, seconds) and return its path."""
+    body = matrix_request([h3.cell_to_latlng(c) for c in cells], [(lat, lon) for _, lat, lon in facilities])
+    src = [(p["lat"], p["lon"]) for p in body["sources"]]
+    dst = [(p["lat"], p["lon"]) for p in body["targets"]]
+    durations = [[round(synthetic_minutes(a, b) * 60) for b in dst] for a in src]
+    response = {"sources_to_targets": {"durations": durations}, "units": "kilometers", "fixture": "synthetic"}
+    for old in CASSETTES.glob("sources_to_targets-*.json"):
+        old.unlink()
+    client = ValhallaClient(mode="record", cassette_dir=CASSETTES, note=MATRIX_NOTE)
+    path = client._record("sources_to_targets", body, response)
+    return path, body
+
+
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -237,6 +294,10 @@ def main() -> None:
     )
     curated = curate_cdss_rows(read_cdss_csv(csv_path), prov)
     write_facility_geoparquet(curated, FX / "santa_clara" / "facility.parquet")  # type: ignore[arg-type]
+
+    usable = [(f, lat, lon) for f, lat, lon in curated if f.location_precision != "suppressed"]
+    cells = sorted(str(r["h3_r8"]) for r in children)
+    matrix_path, _ = make_matrix_cassette(cells, [(f.facility_id, lat, lon) for f, lat, lon in usable])  # type: ignore[misc]
 
     catalog = {
         "releases": [
@@ -279,6 +340,20 @@ def main() -> None:
                 "status": "pinned",
                 "notes": "SYNTHETIC hand-built isochrone, not a Valhalla recording. Class mirrors ODbL.",
             },
+            {
+                "release_id": REL.matrix,
+                "source_id": "fixture_valhalla_matrix",
+                "vintage": "2026-11-27",
+                "url": f"fixture://tests/fixtures/valhalla/cassettes/{matrix_path.name}",
+                "sha256": sha256(matrix_path),
+                "license_spdx": "LicenseRef-fixture-mirrors-ODbL",
+                "license_class": "share_alike",
+                "commercial_ok": True,
+                "retrieved_at": GENERATED_AT.isoformat(),
+                "status": "pinned",
+                "notes": "SYNTHETIC formula-built OD matrix cassette, not a Valhalla recording. "
+                "Class mirrors ODbL.",
+            },
         ]
     }
     header = "# SYNTHETIC fixture catalog for CI. Regenerate with `make fixtures`; do not hand-edit.\n"
@@ -286,30 +361,69 @@ def main() -> None:
         header + yaml.safe_dump(catalog, sort_keys=False), encoding="utf-8"
     )
 
-    # Product 01 memo for the 15-minute contour.
+    # Product 01 memo for the origin cell, 2SFCA over the whole fixture region (15 minutes).
     diff = next(
         d for d in isochrone_diff(ORIGIN, parse_valhalla_isochrone(iso), RADIUS_MI) if d.minutes == 15
     )
-    seats = [FacilitySeat(f.h3_r8, f.licensed_capacity or 0, f.location_precision) for f, _, _ in curated]
-    gap = compute_gap(ORIGIN, 15, diff.iso_cells, {r["h3_r8"]: r["children_0_5"] for r in children}, seats)  # type: ignore[misc]
-    rows = feature_rows(gap, diff, REL)
-    allowed = {REL.acs, REL.cdss, REL.routing}
-    memo, findings = build_memo(gap, diff, REL, rows, allowed, GENERATED_AT)
+    seats = [
+        FacilitySeat(f.facility_id, f.h3_r8, f.licensed_capacity or 0, f.location_precision)
+        for f, _, _ in usable
+    ]
+    kids = {str(r["h3_r8"]): int(r["children_0_5"]) for r in children}  # type: ignore[call-overload]
+    travel = travel_from_cassette(matrix_path, cells, [f.facility_id for f in seats])
+    region = allocate_region(kids, seats, travel)
+    cell = region.cells[ORIGIN]
+    rows = feature_rows(cell, region, diff, REL)
+    allowed = {REL.acs, REL.cdss, REL.routing, REL.matrix}
+    memo, findings = build_memo(cell, region, diff, REL, rows, allowed, GENERATED_AT)
     if findings:
         raise SystemExit(f"fixture memo failed grounding: {findings}")
     (FX / "memos" / "p01_santa_clara_memo.md").write_text(memo.body_md, encoding="utf-8")
     payload = {
-        "_fixture_note": "SYNTHETIC feature rows for the Product 01 fixture memo.",
+        "_fixture_note": "SYNTHETIC feature rows for the Product 01 2SFCA fixture memo.",
         "allowed_releases": sorted(allowed),
         "rows": rows,
     }
     (FX / "memos" / "p01_santa_clara_features.json").write_text(
         json.dumps(payload, indent=1) + "\n", encoding="utf-8"
     )
-    print(
-        f"origin {ORIGIN}; gap {gap.gap_seats} seats; jaccard {diff.jaccard:.3f}; "
-        f"iso cells {len(diff.iso_cells)}, radius cells {len(diff.radius_cells)}"
+
+    # Static viewer export (GeoJSON; `make tiles` turns cells into PMTiles where tippecanoe exists).
+    write_geojson(cells_feature_collection(region, sorted(allowed), TILES_BUILD_ID), WEB / "cells.geojson")
+    write_geojson(
+        centers_feature_collection(
+            (f.kind, f.location_precision, f.licensed_capacity or 0, lat, lon) for f, lat, lon in usable
+        ),
+        WEB / "centers.geojson",
     )
+    write_geojson(sharing_index(region, travel), WEB / "sharing.json")
+    print(
+        f"origin {ORIGIN}; 2SFCA seats/child {cell.seats_per_child:.4f}; gap {cell.gap_seats:.2f}; "
+        f"region seats {region.total_seats}, simple ratio counts {region.simple_ratio_seats_counted}; "
+        f"jaccard {diff.jaccard:.3f}"
+    )
+
+
+def travel_from_cassette(
+    path: Path, cells: list[str], facility_ids: list[str]
+) -> dict[tuple[str, str], float]:
+    from spine.compute.valhalla_client import parse_matrix_minutes
+
+    doc = json.loads(path.read_text(encoding="utf-8"))
+    return parse_matrix_minutes(doc["response"], cells, facility_ids)
+
+
+def sharing_index(region: RegionAllocation, travel: dict[tuple[str, str], float]) -> dict[str, object]:
+    """Anonymous facility indices in reach of each cell, so the viewer can outline every cell that
+    shares seats with the clicked one. No facility ids, names or coordinates leave the build."""
+    minutes = region.minutes
+    ids = sorted({j for (_, j) in travel})
+    idx = {j: k for k, j in enumerate(ids)}
+    reach: dict[str, list[int]] = {}
+    for (i, j), t in sorted(travel.items()):
+        if t <= minutes:
+            reach.setdefault(i, []).append(idx[j])
+    return {"minutes": minutes, "facilities": len(ids), "reach": reach}
 
 
 if __name__ == "__main__":

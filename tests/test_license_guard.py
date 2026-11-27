@@ -91,3 +91,62 @@ def test_p01_gap_scores_fail_without_produced_work_boundary() -> None:
     gap.pop("produced_work")
     errs = check(m)
     assert len(errs) == 1 and "p01_gap_scores: ODbL input mixed" in errs[0]
+
+
+# --- G-301 rule L4: restricted inputs (e.g. CDSS) stay out of commercial artifacts ---
+R4 = [*R, {"release_id": "cdss", "license_class": "restricted"}]
+
+
+def M4(**a: Any) -> dict[str, Any]:
+    art = {"name": "p", "path": "data/decisions/p.parquet", "inputs": ["acs", "cdss"], "columns": ["h3_r8"]}
+    art.update(a)
+    return {"releases": R4, "artifacts": [art]}
+
+
+def test_l4_restricted_in_commercial_artifact_fails() -> None:
+    assert check(M4(commercial=True)) == [
+        "p: restricted input ['cdss'] in a commercial artifact without approval"
+    ]
+
+
+def test_l4_restricted_noncommercial_ok() -> None:
+    assert check(M4()) == [] and check(M4(commercial=False)) == []
+
+
+def test_l4_bare_true_flag_is_not_an_approval() -> None:
+    assert check(M4(commercial=True, restricted_approvals=True))  # type: ignore[arg-type]
+    assert check(M4(commercial=True, restricted_approved=True))
+
+
+def test_l4_approval_needs_release_id_and_reference() -> None:
+    assert check(M4(commercial=True, restricted_approvals=["cdss"])) == [
+        "p: restricted_approvals given without a restricted_approval_ref"
+    ]
+    ok = M4(
+        commercial=True, restricted_approvals=["cdss"], restricted_approval_ref="CHHS approval 2027-01-05"
+    )
+    assert check(ok) == []
+
+
+def test_l4_approval_for_other_release_does_not_cover_cdss() -> None:
+    errs = check(M4(commercial=True, restricted_approvals=["acs"], restricted_approval_ref="x"))
+    assert errs == ["p: restricted input ['cdss'] in a commercial artifact without approval"]
+
+
+def test_l4_public_domain_commercial_ok() -> None:
+    assert check(M4(inputs=["acs"], commercial=True)) == []
+
+
+def test_p01_memo_flagged_commercial_fails_l4() -> None:
+    import json
+
+    from spine.catalog.releases import as_guard_releases, load_catalog
+
+    m = json.loads((ROOT / "data/manifests/p01_santa_clara_fixture.json").read_text())
+    m["releases"] = as_guard_releases(load_catalog(ROOT / "tests/fixtures/releases.fixture.yaml"))
+    memo = next(a for a in m["artifacts"] if a["name"] == "p01_memo")
+    memo["commercial"] = True
+    errs = check(m)
+    assert len(errs) == 1 and errs[0].startswith(
+        "p01_memo: restricted input ['fixture_cdss_ccl_sc_2026-11-02']"
+    )

@@ -11,6 +11,7 @@ from spine.catalog.models import Frozen
 AbstainReason = Literal[
     "insufficient_coverage", "stale_release", "conflicting_evidence", "out_of_domain", "license_blocked"
 ]
+Verdict = Literal["recommend", "do_not_recommend", "abstain"]
 
 
 class Evidence(Frozen):
@@ -33,7 +34,7 @@ class Score(Frozen):
 class Recommendation(Frozen):
     recommendation_id: str
     subject_id: str
-    verdict: Literal["recommend", "do_not_recommend", "abstain"]
+    verdict: Verdict
     abstain_reason: AbstainReason | None = None
     rationale_md: str
     evidence: tuple[Evidence, ...]
